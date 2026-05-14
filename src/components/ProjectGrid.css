@@ -33,6 +33,7 @@
   aspect-ratio: 4 / 5;
   overflow: hidden;
   margin-bottom: 1.5rem;
+  background-color: #f8f8f8;
 }
 
 .project-image-container img {

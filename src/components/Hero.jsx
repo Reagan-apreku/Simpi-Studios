@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import './Hero.css';
 
 const images = [
-  '/images/hero/007A0621SIMPI25.jpg',
-  '/images/hero/007A1455SIMPI-2024.jpg',
-  '/images/hero/007A5057SIMPI25.jpg',
-  '/images/hero/007A5083SIMPI25.jpg',
-  '/images/hero/007A7648SIMPI-2025.jpg',
-  '/images/hero/3C5A9456SIMPI-2024.jpg',
-  '/images/hero/3C5A9557SIMPI-2024.jpg',
-  '/images/hero/3C5A9592SIMPI-2024.jpg',
-  '/images/hero/3C5A9683SIMPI-2024.jpg',
+  '/images/hero/optimized-007A0621SIMPI25.jpg',
+  '/images/hero/optimized-007A1455SIMPI-2024.jpg',
+  '/images/hero/optimized-007A5057SIMPI25.jpg',
+  '/images/hero/optimized-007A5083SIMPI25.jpg',
+  '/images/hero/optimized-007A7648SIMPI-2025.jpg',
+  '/images/hero/optimized-3C5A9456SIMPI-2024.jpg',
+  '/images/hero/optimized-3C5A9557SIMPI-2024.jpg',
+  '/images/hero/optimized-3C5A9592SIMPI-2024.jpg',
+  '/images/hero/optimized-3C5A9683SIMPI-2024.jpg',
 ];
 
 const Hero = () => {
