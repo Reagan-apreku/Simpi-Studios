@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PaystackButton } from 'react-paystack';
+import emailjs from '@emailjs/browser';
 import './Prints.css';
 
 const frames = [
@@ -49,6 +50,32 @@ const Prints = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const sendEmail = (orderRef) => {
+    const templateParams = {
+      order_ref: orderRef,
+      customer_name: formData.name,
+      customer_email: formData.email,
+      customer_phone: formData.phone,
+      frame_name: selectedFrame.name,
+      frame_size: formData.size,
+      delivery_method: formData.deliveryMethod,
+      delivery_address: formData.address || 'N/A',
+      total_amount: `GH₵${calculateTotal()}`,
+    };
+
+    emailjs.send(
+      'YOUR_SERVICE_ID', // Replace with your Service ID
+      'YOUR_TEMPLATE_ID', // Replace with your Template ID
+      templateParams,
+      'YOUR_PUBLIC_KEY' // Replace with your Public Key
+    )
+    .then((response) => {
+      console.log('Email sent successfully!', response.status, response.text);
+    }, (err) => {
+      console.error('Failed to send email...', err);
+    });
+  };
+
   const config = {
     reference: (new Date()).getTime().toString(),
     email: formData.email,
@@ -64,6 +91,7 @@ const Prints = () => {
         delivery: formData.deliveryMethod,
         total: calculateTotal()
       });
+      sendEmail(reference.reference);
       setOrderComplete(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     },
