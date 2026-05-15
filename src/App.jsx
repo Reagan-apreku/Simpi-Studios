@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import ProjectGrid from './components/ProjectGrid';
 import Lightbox from './components/Lightbox';
 import ComingSoon from './components/ComingSoon';
+import Contact from './components/Contact';
 import './App.css';
 
 const projects = [
@@ -37,7 +38,7 @@ function App() {
       case 'about':
         return <ComingSoon title="About Us & Clients" />;
       case 'contact':
-        return <ComingSoon title="Contact" />;
+        return <Contact />;
       default:
         return <Hero />;
     }
