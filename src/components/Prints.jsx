@@ -55,7 +55,7 @@ const Prints = () => {
     reference: (new Date()).getTime().toString(),
     email: formData.email,
     amount: calculateTotal() * 100, // Amount in pesewas
-    publicKey: 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', // Replace with your actual public key
+    publicKey: 'pk_test_a6978513a7d8178d623bf0ef2b75dd28cc98efb2', // User's public key
     currency: 'GHS',
   };
 
