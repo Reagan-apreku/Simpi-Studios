@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { usePaystackPayment } from 'react-paystack';
 import './Prints.css';
 
 const frames = [
@@ -47,9 +48,27 @@ const Prints = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Thank you for your order! Total amount: GH₵${calculateTotal()}. We will contact you shortly for payment details.`);
+    // Verification logic is now handled by Paystack component
+  };
+
+  const config = {
+    reference: (new Date()).getTime().toString(),
+    email: formData.email,
+    amount: calculateTotal() * 100, // Amount in pesewas
+    publicKey: 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', // Replace with your actual public key
+    currency: 'GHS',
+  };
+
+  const onSuccess = (reference) => {
+    alert(`Payment Successful! Reference: ${reference.reference}`);
     setSelectedFrame(null);
   };
+
+  const onClose = () => {
+    console.log('Payment window closed');
+  };
+
+  const initializePayment = usePaystackPayment(config);
 
   return (
     <section className="prints-page fade-in">
@@ -135,7 +154,19 @@ const Prints = () => {
                     </div>
                   </div>
 
-                  <button type="submit" className="payment-btn">PROCEED TO PAYMENT</button>
+                  <button 
+                    type="button" 
+                    className="payment-btn"
+                    onClick={() => {
+                      if (!formData.name || !formData.email || !formData.phone || (formData.deliveryMethod === 'delivery' && !formData.address)) {
+                        alert('Please fill in all personal details first.');
+                        return;
+                      }
+                      initializePayment(onSuccess, onClose);
+                    }}
+                  >
+                    PROCEED TO PAYMENT
+                  </button>
                 </form>
               </div>
             </div>
