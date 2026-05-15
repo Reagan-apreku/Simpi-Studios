@@ -20,6 +20,20 @@ const Prints = () => {
     address: ''
   });
 
+  const calculateTotal = () => {
+    if (!selectedFrame) return 0;
+    let total = selectedFrame.price;
+    
+    // Size multiplier
+    if (formData.size === '18x24') total += 50;
+    if (formData.size === '24x36') total += 100;
+    
+    // Express duration fee
+    if (formData.deliveryTime === '48h') total += 30;
+    
+    return total;
+  };
+
   const handleFrameClick = (frame) => {
     setSelectedFrame(frame);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -32,7 +46,7 @@ const Prints = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Thank you for your order! We will contact you shortly for payment details.');
+    alert(`Thank you for your order! Total amount: $${calculateTotal()}. We will contact you shortly for payment details.`);
     setSelectedFrame(null);
   };
 
@@ -53,7 +67,10 @@ const Prints = () => {
               </div>
               <div className="checkout-form-container">
                 <h2>{selectedFrame.name}</h2>
-                <p className="base-price">Starting from ${selectedFrame.price}</p>
+                <div className="price-display">
+                  <p className="total-price">TOTAL: ${calculateTotal()}</p>
+                  <p className="price-note">Price adjusts based on size and delivery time</p>
+                </div>
                 
                 <form onSubmit={handleSubmit} className="purchase-form">
                   <div className="form-section">
@@ -100,6 +117,9 @@ const Prints = () => {
                         <span>STUDIO PICKUP (ACCRA)</span>
                       </label>
                     </div>
+                    {formData.deliveryMethod === 'delivery' && (
+                      <p className="delivery-notice">Note: Delivery fee is calculated based on location and paid by the client upon receipt.</p>
+                    )}
                   </div>
 
                   <div className="form-section">

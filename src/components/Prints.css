@@ -120,13 +120,33 @@
 .checkout-form-container h2 {
   font-size: 2.5rem;
   font-family: var(--font-serif);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
-.base-price {
-  font-size: 1.2rem;
+.price-display {
   margin-bottom: 4rem;
+}
+
+.total-price {
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.price-note {
+  font-size: 0.7rem;
   color: var(--secondary-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.delivery-notice {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 1.5rem;
+  font-style: italic;
+  line-height: 1.6;
 }
 
 .form-section {
