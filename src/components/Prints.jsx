@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import './Prints.css';
 
 const frames = [
-  { id: 1, name: 'CLASSIC BLACK OAK', price: 150, image: '/images/prints/1.jpg' },
-  { id: 2, name: 'MINIMAL WHITE MAPLE', price: 180, image: '/images/prints/2.jpg' },
-  { id: 3, name: 'NATURAL WALNUT', price: 220, image: '/images/prints/3.jpg' },
-  { id: 4, name: 'VINTAGE GOLD LEAF', price: 250, image: '/images/prints/4.jpg' },
-  { id: 5, name: 'MODERN BRUSHED STEEL', price: 200, image: '/images/prints/5.jpg' },
+  { id: 1, name: 'CLASSIC BLACK OAK', price: 1500, image: '/images/prints/1.jpg' },
+  { id: 2, name: 'MINIMAL WHITE MAPLE', price: 1800, image: '/images/prints/2.jpg' },
+  { id: 3, name: 'NATURAL WALNUT', price: 2200, image: '/images/prints/3.jpg' },
+  { id: 4, name: 'VINTAGE GOLD LEAF', price: 2500, image: '/images/prints/4.jpg' },
+  { id: 5, name: 'MODERN BRUSHED STEEL', price: 2000, image: '/images/prints/5.jpg' },
 ];
 
 const Prints = () => {
@@ -26,11 +26,11 @@ const Prints = () => {
     let total = selectedFrame.price;
     
     // Size multiplier
-    if (formData.size === '18x24') total += 50;
-    if (formData.size === '24x36') total += 100;
+    if (formData.size === '18x24') total += 500;
+    if (formData.size === '24x36') total += 1000;
     
     // Express duration fee
-    if (formData.deliveryTime === '48h') total += 30;
+    if (formData.deliveryTime === '48h') total += 300;
     
     return total;
   };
@@ -47,7 +47,7 @@ const Prints = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Thank you for your order! Total amount: $${calculateTotal()}. We will contact you shortly for payment details.`);
+    alert(`Thank you for your order! Total amount: GH₵${calculateTotal()}. We will contact you shortly for payment details.`);
     setSelectedFrame(null);
   };
 
@@ -69,7 +69,7 @@ const Prints = () => {
               <div className="checkout-form-container">
                 <h2>{selectedFrame.name}</h2>
                 <div className="price-display">
-                  <p className="total-price">TOTAL: ${calculateTotal()}</p>
+                  <p className="total-price">TOTAL: GH₵{calculateTotal()}</p>
                   <p className="price-note">Price adjusts based on size and delivery time</p>
                 </div>
                 
@@ -152,7 +152,7 @@ const Prints = () => {
                 </div>
                 <div className="frame-info">
                   <h3>{frame.name}</h3>
-                  <p>FROM ${frame.price}</p>
+                  <p>FROM GH₵{frame.price}</p>
                 </div>
               </div>
             ))}
