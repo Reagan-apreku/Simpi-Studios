@@ -30,7 +30,7 @@ const Prints = () => {
     if (formData.size === '24x36') total += 1000;
     
     // Express duration fee
-    if (formData.deliveryTime === '48h') total += 300;
+    if (formData.deliveryTime === '48h') total += 100;
     
     return total;
   };
