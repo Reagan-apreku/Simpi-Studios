@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { usePaystackPayment } from 'react-paystack';
+import { PaystackButton } from 'react-paystack';
 import './Prints.css';
 
 const frames = [
@@ -55,25 +55,22 @@ const Prints = () => {
     amount: calculateTotal() * 100, // Amount in pesewas
     publicKey: 'pk_test_a6978513a7d8178d623bf0ef2b75dd28cc98efb2', // User's public key
     currency: 'GHS',
+    text: 'PROCEED TO PAYMENT',
+    onSuccess: (reference) => {
+      setOrderDetails({
+        reference: reference.reference,
+        frame: selectedFrame.name,
+        size: formData.size,
+        delivery: formData.deliveryMethod,
+        total: calculateTotal()
+      });
+      setOrderComplete(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+    onClose: () => console.log('Payment window closed'),
   };
 
-  const onSuccess = (reference) => {
-    setOrderDetails({
-      reference: reference.reference,
-      frame: selectedFrame.name,
-      size: formData.size,
-      delivery: formData.deliveryMethod,
-      total: calculateTotal()
-    });
-    setOrderComplete(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const onClose = () => {
-    console.log('Payment window closed');
-  };
-
-  const initializePayment = usePaystackPayment(config);
+  const isFormValid = formData.name && formData.email && formData.phone && (formData.deliveryMethod !== 'delivery' || formData.address);
 
   return (
     <section className="prints-page fade-in">
@@ -136,7 +133,7 @@ const Prints = () => {
                       <p className="price-note">Price adjusts based on size and delivery time</p>
                     </div>
                     
-                    <form className="purchase-form">
+                    <form className="purchase-form" onSubmit={(e) => e.preventDefault()}>
                       <div className="form-section">
                         <h3>SELECT SIZE</h3>
                         <div className="radio-group">
@@ -198,19 +195,17 @@ const Prints = () => {
                         </div>
                       </div>
 
-                      <button 
-                        type="button" 
-                        className="payment-btn"
-                        onClick={() => {
-                          if (!formData.name || !formData.email || !formData.phone || (formData.deliveryMethod === 'delivery' && !formData.address)) {
-                            alert('Please fill in all personal details first.');
-                            return;
-                          }
-                          initializePayment(onSuccess, onClose);
-                        }}
-                      >
-                        PROCEED TO PAYMENT
-                      </button>
+                      {isFormValid ? (
+                        <PaystackButton {...config} className="payment-btn" />
+                      ) : (
+                        <button 
+                          type="button" 
+                          className="payment-btn"
+                          onClick={() => alert('Please fill in all personal details first.')}
+                        >
+                          PROCEED TO PAYMENT
+                        </button>
+                      )}
                     </form>
                   </div>
                 </div>
