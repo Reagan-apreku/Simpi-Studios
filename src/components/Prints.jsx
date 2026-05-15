@@ -17,6 +17,7 @@ const Prints = () => {
     deliveryMethod: 'delivery',
     name: '',
     email: '',
+    phone: '',
     address: ''
   });
 
@@ -127,6 +128,7 @@ const Prints = () => {
                     <div className="input-group">
                       <input type="text" name="name" placeholder="FULL NAME" required onChange={handleInputChange} />
                       <input type="email" name="email" placeholder="EMAIL ADDRESS" required onChange={handleInputChange} />
+                      <input type="tel" name="phone" placeholder="PHONE NUMBER" required onChange={handleInputChange} />
                       {formData.deliveryMethod === 'delivery' && (
                         <input type="text" name="address" placeholder="DELIVERY ADDRESS" required onChange={handleInputChange} />
                       )}
