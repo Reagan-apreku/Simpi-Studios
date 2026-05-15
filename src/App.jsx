@@ -6,6 +6,7 @@ import ProjectGrid from './components/ProjectGrid';
 import Lightbox from './components/Lightbox';
 import ComingSoon from './components/ComingSoon';
 import Contact from './components/Contact';
+import About from './components/About';
 import './App.css';
 
 const projects = [
@@ -36,7 +37,7 @@ function App() {
       case 'prints':
         return <ComingSoon title="Prints" />;
       case 'about':
-        return <ComingSoon title="About Us & Clients" />;
+        return <About />;
       case 'contact':
         return <Contact />;
       default:
