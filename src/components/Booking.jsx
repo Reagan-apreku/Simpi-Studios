@@ -6,7 +6,7 @@ const services = [
   {
     id: 'corp-headshots',
     name: 'Corporate Headshots',
-    image: '/images/project-7.png',
+    image: '/images/bookings/007A8767SIMPI25.jpg',
     description: 'Professional executive portraits for teams and individuals.',
     isStudioOptional: true,
   },

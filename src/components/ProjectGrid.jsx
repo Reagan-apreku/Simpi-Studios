@@ -28,7 +28,7 @@ const projects = [
   { id: 4, title: 'WEDDING DAY MEMORIES', cover: '/images/project-4.png' },
   { id: 5, title: 'CULTURAL HERITAGE', cover: '/images/project-5.png' },
   { id: 6, title: 'CONTEMPORARY BEAUTY', cover: '/images/project-6.png' },
-  { id: 7, title: 'CORPORATE HEADSHOTS', cover: '/images/project-7.png' },
+  { id: 7, title: 'CORPORATE HEADSHOTS', cover: '/images/bookings/007A8767SIMPI25.jpg' },
   { id: 8, title: 'FAMILY MOMENTS', cover: '/images/project-8.png' },
 ];
 
