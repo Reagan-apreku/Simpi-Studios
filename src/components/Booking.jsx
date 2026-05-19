@@ -41,6 +41,7 @@ const services = [
     image: '/images/gallery/dzah_family_portraits/whatsapp_cover.jpeg',
     description: 'Warm, timeless family lifestyle and portrait sessions.',
     isStudioOptional: true,
+    objectPosition: 'center 15%',
   }
 ];
 
