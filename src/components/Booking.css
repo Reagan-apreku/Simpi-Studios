@@ -412,6 +412,32 @@
   margin-bottom: 2rem;
 }
 
+.submit-total-cost-reminder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: -1rem;
+  padding: 1.2rem 1.5rem;
+  background-color: #fcfcfc;
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+}
+
+.submit-total-cost-reminder .label {
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.submit-total-cost-reminder .value {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #111;
+}
+
 .confirm-booking-btn {
   width: 100%;
   padding: 1.5rem;

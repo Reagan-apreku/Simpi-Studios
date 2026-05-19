@@ -462,6 +462,19 @@ const Booking = () => {
                       ></textarea>
                     </div>
 
+                    {hasOutfitPackage(selectedService.id) && (
+                      <div className="submit-total-cost-reminder">
+                        <span className="label">TOTAL COST:</span>
+                        <span className="value">{getServicePrice(selectedService.id, outfitCount, shootType)} GHS</span>
+                      </div>
+                    )}
+                    {(selectedService.id === 'corp-event' || selectedService.id === 'corp-headshots') && (
+                      <div className="submit-total-cost-reminder">
+                        <span className="label">PRICING:</span>
+                        <span className="value" style={{ fontSize: '0.85rem' }}>CUSTOM ESTIMATE</span>
+                      </div>
+                    )}
+
                     <button 
                       type="submit" 
                       className="confirm-booking-btn"
