@@ -4,7 +4,7 @@ import './ProjectGrid.css';
 const projects = [
   { 
     id: 1, 
-    title: 'EMY AWARDS 2022', 
+    title: 'EMY AFRICA AWARDS', 
     cover: '/images/gallery/emy_awards_2022/IMG_6599SIMPI22.jpg',
     images: [
       '/images/gallery/emy_awards_2022/IMG_6394SIMPI22.jpg',
