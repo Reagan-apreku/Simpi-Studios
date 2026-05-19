@@ -61,25 +61,6 @@ const projects = [
   },
   {
     id: 3,
-    title: 'FASHION - MAEHYIRA MODE',
-    cover: '/images/gallery/fashion_maehyira_mode/007A1596SIMPI26.jpg',
-    images: [
-      '/images/gallery/fashion_maehyira_mode/007A1512SIMPI26.jpg',
-      '/images/gallery/fashion_maehyira_mode/007A1542SIMPI26.jpg',
-      '/images/gallery/fashion_maehyira_mode/007A1558SIMPI26.jpg',
-      '/images/gallery/fashion_maehyira_mode/007A1568SIMPI26.jpg',
-      '/images/gallery/fashion_maehyira_mode/007A1576SIMPI26.jpg',
-      '/images/gallery/fashion_maehyira_mode/007A1586SIMPI26-2.jpg',
-      '/images/gallery/fashion_maehyira_mode/007A1596SIMPI26.jpg',
-      '/images/gallery/fashion_maehyira_mode/007A1608SIMPI26.jpg',
-      '/images/gallery/fashion_maehyira_mode/007A1618SIMPI26-5.jpg',
-      '/images/gallery/fashion_maehyira_mode/007A1624SIMPI26-2.jpg',
-      '/images/gallery/fashion_maehyira_mode/007A1670SIMPI26.jpg',
-      '/images/gallery/fashion_maehyira_mode/007A1748SIMPI26-2.jpg'
-    ]
-  },
-  {
-    id: 4,
     title: 'UK-GHANA BUSINESS AWARDS',
     cover: '/images/gallery/uk_ghana_business_awards/007A4654SIMPI25.jpg',
     images: [
@@ -115,6 +96,25 @@ const projects = [
       '/images/gallery/uk_ghana_business_awards/007A5537SIMPI25.jpg',
       '/images/gallery/uk_ghana_business_awards/007A5587SIMPI25.jpg',
       '/images/gallery/uk_ghana_business_awards/007A5700SIMPI25.jpg'
+    ]
+  },
+  {
+    id: 4,
+    title: 'FASHION - MAEHYIRA MODE',
+    cover: '/images/gallery/fashion_maehyira_mode/007A1596SIMPI26.jpg',
+    images: [
+      '/images/gallery/fashion_maehyira_mode/007A1512SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1542SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1558SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1568SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1576SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1586SIMPI26-2.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1596SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1608SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1618SIMPI26-5.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1624SIMPI26-2.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1670SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1748SIMPI26-2.jpg'
     ]
   },
   {
