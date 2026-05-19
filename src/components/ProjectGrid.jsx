@@ -120,8 +120,9 @@ const projects = [
   {
     id: 5,
     title: 'THE DZAH FAMILY PORTRAITS',
-    cover: '/images/gallery/dzah_family_portraits/007A5083SIMPI-2024.jpg',
+    cover: '/images/gallery/dzah_family_portraits/whatsapp_cover.jpeg',
     images: [
+      '/images/gallery/dzah_family_portraits/whatsapp_cover.jpeg',
       '/images/gallery/dzah_family_portraits/007A5083SIMPI-2024.jpg',
       '/images/gallery/dzah_family_portraits/007A5156SIMPI-2024.jpg',
       '/images/gallery/dzah_family_portraits/007A5344SIMPI-2024.jpg',
