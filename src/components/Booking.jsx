@@ -23,7 +23,7 @@ const services = [
   {
     id: 'pre-wedding',
     name: 'Pre Wedding',
-    image: '/images/hero-2.png',
+    image: '/images/gallery/10_000/007A8334SIMPI25.jpg',
     description: 'Romantic and artistic pre-wedding sessions to capture your love story.',
     isStudioOptional: true,
     aspectRatio: '3 / 4',
