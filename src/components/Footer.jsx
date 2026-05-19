@@ -25,8 +25,6 @@ const Footer = () => {
           <ul>
             <li><a href="https://www.instagram.com/simpi_studios?igsh=MWsxanYzM3F2bzI0ZQ==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
             <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Pinterest</a></li>
           </ul>
         </div>
 
