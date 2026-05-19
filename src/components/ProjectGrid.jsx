@@ -62,7 +62,7 @@ const projects = [
   {
     id: 3,
     title: 'FASHION - MAEHYIRA MODE',
-    cover: '/images/gallery/fashion_maehyira_mode/007A1670SIMPI26.jpg',
+    cover: '/images/gallery/fashion_maehyira_mode/007A1596SIMPI26.jpg',
     images: [
       '/images/gallery/fashion_maehyira_mode/007A1512SIMPI26.jpg',
       '/images/gallery/fashion_maehyira_mode/007A1542SIMPI26.jpg',
