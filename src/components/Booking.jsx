@@ -9,6 +9,7 @@ const services = [
     image: '/images/bookings/007A8767SIMPI25.jpg',
     description: 'Professional executive portraits for teams and individuals.',
     isStudioOptional: true,
+    objectPosition: 'center 15%',
   },
   {
     id: 'corp-event',
@@ -201,7 +202,11 @@ const Booking = () => {
               {services.map((service) => (
                 <div key={service.id} className="service-card" onClick={() => handleServiceSelect(service)}>
                   <div className="service-image">
-                    <img src={service.image} alt={service.name} />
+                    <img 
+                      src={service.image} 
+                      alt={service.name} 
+                      style={service.objectPosition ? { objectPosition: service.objectPosition } : {}}
+                    />
                     <div className="service-overlay">
                       <span>SELECT SERVICE</span>
                     </div>

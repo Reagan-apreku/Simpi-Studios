@@ -28,7 +28,7 @@ const projects = [
   { id: 4, title: 'WEDDING DAY MEMORIES', cover: '/images/project-4.png' },
   { id: 5, title: 'CULTURAL HERITAGE', cover: '/images/project-5.png' },
   { id: 6, title: 'CONTEMPORARY BEAUTY', cover: '/images/project-6.png' },
-  { id: 7, title: 'CORPORATE HEADSHOTS', cover: '/images/bookings/007A8767SIMPI25.jpg' },
+  { id: 7, title: 'CORPORATE HEADSHOTS', cover: '/images/bookings/007A8767SIMPI25.jpg', objectPosition: 'center 15%' },
   { id: 8, title: 'FAMILY MOMENTS', cover: '/images/project-8.png' },
 ];
 
@@ -48,7 +48,12 @@ const ProjectGrid = ({ onProjectClick }) => {
               onClick={() => onProjectClick && onProjectClick(project)}
             >
               <div className="project-image-container">
-                <img src={project.cover} alt={project.title} loading="lazy" />
+                <img 
+                  src={project.cover} 
+                  alt={project.title} 
+                  loading="lazy" 
+                  style={project.objectPosition ? { objectPosition: project.objectPosition } : {}}
+                />
                 <div className="project-hover-overlay"></div>
               </div>
               <h3 className="project-title">{project.title}</h3>
