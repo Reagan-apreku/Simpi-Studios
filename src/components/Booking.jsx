@@ -47,6 +47,7 @@ const Booking = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [currentDateObj, setCurrentDateObj] = useState(new Date(2026, 4, 19)); // May 2026 from sample image
   const [selectedTime, setSelectedTime] = useState('');
+  const [customTime, setCustomTime] = useState('');
   
   // Form States
   const [formData, setFormData] = useState({
@@ -134,7 +135,7 @@ const Booking = () => {
 
   const timeSlots = shootType === 'studio' 
     ? ['10:00 AM', '12:00 PM', '02:00 PM']
-    : ['09:00 AM', '11:00 AM', '01:00 PM', '03:00 PM', '05:00 PM'];
+    : ['06:00 AM', '08:00 AM', '10:00 AM', '12:00 PM', '02:00 PM', '04:00 PM', '06:00 PM', 'Custom Time'];
 
   const getFormattedDate = (date) => {
     if (!date) return '';
@@ -143,7 +144,8 @@ const Booking = () => {
 
   const handleSubmitBooking = (e) => {
     e.preventDefault();
-    if (!selectedDate || !selectedTime) {
+    const finalTime = selectedTime === 'Custom Time' ? customTime : selectedTime;
+    if (!selectedDate || !finalTime) {
       alert('Please select both a date and a time slot.');
       return;
     }
@@ -160,7 +162,7 @@ const Booking = () => {
       service_name: selectedService.name,
       shoot_type: shootType === 'studio' ? 'Studio Shoot' : 'Outdoor/Event Shoot',
       booking_date: getFormattedDate(selectedDate),
-      booking_time: selectedTime,
+      booking_time: finalTime,
       notes: formData.notes || 'N/A'
     };
 
@@ -328,11 +330,36 @@ const Booking = () => {
                         </button>
                       ))}
                     </div>
+                    {selectedTime === 'Custom Time' && (
+                      <div className="custom-time-input-container fade-in" style={{ marginTop: '2rem' }}>
+                        <input 
+                          type="text"
+                          className="custom-time-field"
+                          placeholder="ENTER CUSTOM TIME (e.g. Sunrise at 06:15 AM)"
+                          value={customTime}
+                          onChange={(e) => setCustomTime(e.target.value)}
+                          required
+                          style={{
+                            width: '100%',
+                            padding: '1.2rem',
+                            border: '1px solid #ccc',
+                            fontSize: '0.9rem',
+                            letterSpacing: '0.1em',
+                            textTransform: 'uppercase',
+                            outline: 'none',
+                            fontFamily: 'inherit'
+                          }}
+                        />
+                        <p style={{ fontSize: '0.75rem', color: '#666', marginTop: '0.8rem', letterSpacing: '0.05em' }}>
+                          Ideal for sunrise, sunset, or customized coverage hours.
+                        </p>
+                      </div>
+                    )}
                   </div>
                 )}
 
                 {/* Personal Details Form */}
-                {selectedDate && selectedTime && (
+                {selectedDate && selectedTime && (selectedTime !== 'Custom Time' || customTime.trim() !== '') && (
                   <form className="booking-details-form fade-in" onSubmit={handleSubmitBooking}>
                     <h3>Enter Your Details</h3>
                     <div className="input-group">
@@ -402,7 +429,7 @@ const Booking = () => {
                   {selectedTime && (
                     <div className="summary-row">
                       <span className="summary-label">TIME SLOT:</span>
-                      <span className="summary-value">{selectedTime}</span>
+                      <span className="summary-value">{selectedTime === 'Custom Time' ? (customTime || 'Custom Time') : selectedTime}</span>
                     </div>
                   )}
                 </div>
@@ -434,7 +461,7 @@ const Booking = () => {
               </div>
               <div className="summary-item">
                 <span>TIME:</span>
-                <span>{selectedTime}</span>
+                <span>{selectedTime === 'Custom Time' ? (customTime || 'Custom Time') : selectedTime}</span>
               </div>
               <div className="summary-item">
                 <span>SHOOT LOCATION:</span>
