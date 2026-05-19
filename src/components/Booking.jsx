@@ -285,7 +285,7 @@ const Booking = () => {
                         setSelectedTime('');
                       }}
                     >
-                      STUDIO SHOOT (ACCRA)
+                      STUDIO SHOOT (ADJRINGANOR)
                     </button>
                     <button 
                       className={`type-btn ${shootType === 'outdoor' ? 'active' : ''}`}
@@ -562,7 +562,7 @@ const Booking = () => {
               </div>
               <div className="summary-item">
                 <span>SHOOT LOCATION:</span>
-                <span>{shootType === 'studio' ? 'STUDIO (ACCRA)' : 'OUTDOOR / ON-LOCATION'}</span>
+                <span>{shootType === 'studio' ? 'STUDIO (ADJRINGANOR)' : 'OUTDOOR / ON-LOCATION'}</span>
               </div>
             </div>
 

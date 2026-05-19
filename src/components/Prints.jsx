@@ -250,7 +250,7 @@ const Prints = () => {
                           </label>
                           <label>
                             <input type="radio" name="deliveryMethod" value="pickup" checked={formData.deliveryMethod === 'pickup'} onChange={handleInputChange} />
-                            <span>STUDIO PICKUP (ACCRA)</span>
+                            <span>STUDIO PICKUP (ADJRINGANOR)</span>
                           </label>
                         </div>
                         {formData.deliveryMethod === 'delivery' && (
