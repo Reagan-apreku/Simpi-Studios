@@ -15,8 +15,8 @@ const customPrints = [
   { 
     id: 'custom-1', 
     name: '5" x 7"', 
-    price: 600, 
-    image: '/images/prints/1.jpg',
+    price: 200, 
+    image: '/images/prints/5_by_7/007A0729SIMPI26.jpg',
     images: [
       '/images/prints/5_by_7/007A0729SIMPI26.jpg',
       '/images/prints/5_by_7/007A0743SIMPI26.jpg',
@@ -236,10 +236,14 @@ const Prints = () => {
                   </div>
                   
                   <div className="checkout-form-container">
-                    <h2>{selectedFrame.name}</h2>
+                    <h2>{selectedFrame.isCustom ? `${selectedFrame.name} Custom Fine Art Print` : selectedFrame.name}</h2>
                     <div className="price-display">
                       <p className="total-price">TOTAL: GH₵{calculateTotal()}</p>
-                      <p className="price-note">Price adjusts based on size and delivery time</p>
+                      <p className="price-note">
+                        {selectedFrame.isCustom 
+                          ? "Our team will reach out directly to coordinate receiving your custom high-resolution picture." 
+                          : "Price adjusts based on size and delivery time"}
+                      </p>
                     </div>
                     
                     <form className="purchase-form" onSubmit={(e) => e.preventDefault()}>
