@@ -74,6 +74,9 @@ const Booking = () => {
     setCurrentDateObj(prev => {
       const d = new Date(prev);
       d.setMonth(d.getMonth() - 1);
+      if (d.getFullYear() < 2026 || (d.getFullYear() === 2026 && d.getMonth() < 4)) {
+        return prev;
+      }
       return d;
     });
   };
@@ -82,6 +85,9 @@ const Booking = () => {
     setCurrentDateObj(prev => {
       const d = new Date(prev);
       d.setMonth(d.getMonth() + 1);
+      if (d.getFullYear() > 2027 || (d.getFullYear() === 2027 && d.getMonth() > 2)) {
+        return prev;
+      }
       return d;
     });
   };
