@@ -4,11 +4,11 @@ import emailjs from '@emailjs/browser';
 import './Prints.css';
 
 const frames = [
-  { id: 1, name: 'Mount Gemi | Volta Region', price: 1500, image: '/images/prints/1.jpg' },
-  { id: 2, name: 'Mount Adaklu | Volta Region', price: 1800, image: '/images/prints/2.jpg' },
-  { id: 3, name: 'NATURAL WALNUT', price: 2200, image: '/images/prints/3.jpg' },
+  { id: 1, name: 'Mount Gemi | Volta Region', price: 2500, image: '/images/prints/1.jpg' },
+  { id: 2, name: 'Mount Adaklu | Volta Region', price: 2500, image: '/images/prints/2.jpg' },
+  { id: 3, name: 'NATURAL WALNUT', price: 2500, image: '/images/prints/3.jpg' },
   { id: 4, name: 'VINTAGE GOLD LEAF', price: 2500, image: '/images/prints/4.jpg' },
-  { id: 5, name: 'Boti Waterfall | Eastern Region', price: 2000, image: '/images/prints/5.jpg' },
+  { id: 5, name: 'Boti Waterfall | Eastern Region', price: 2500, image: '/images/prints/5.jpg' },
 ];
 
 const Prints = () => {
@@ -16,7 +16,7 @@ const Prints = () => {
   const [orderComplete, setOrderComplete] = useState(false);
   const [orderDetails, setOrderDetails] = useState(null);
   const [formData, setFormData] = useState({
-    size: '12x18',
+    size: '24x36',
     deliveryTime: '72h',
     deliveryMethod: 'delivery',
     name: '',
@@ -27,14 +27,17 @@ const Prints = () => {
 
   const calculateTotal = () => {
     if (!selectedFrame) return 0;
-    let total = selectedFrame.price;
     
-    // Size multiplier
-    if (formData.size === '18x24') total += 500;
-    if (formData.size === '24x36') total += 1000;
+    // Set base price by size
+    let total = 2500; // Base for 24x36
+    if (formData.size === '30x40') {
+      total = 3200;
+    }
     
     // Express duration fee
-    if (formData.deliveryTime === '48h') total += 100;
+    if (formData.deliveryTime === '48h') {
+      total += 100;
+    }
     
     return total;
   };
@@ -166,16 +169,12 @@ const Prints = () => {
                         <h3>SELECT SIZE</h3>
                         <div className="radio-group">
                           <label>
-                            <input type="radio" name="size" value="12x18" checked={formData.size === '12x18'} onChange={handleInputChange} />
-                            <span>12" x 18"</span>
-                          </label>
-                          <label>
-                            <input type="radio" name="size" value="18x24" checked={formData.size === '18x24'} onChange={handleInputChange} />
-                            <span>18" x 24"</span>
-                          </label>
-                          <label>
                             <input type="radio" name="size" value="24x36" checked={formData.size === '24x36'} onChange={handleInputChange} />
                             <span>24" x 36"</span>
+                          </label>
+                          <label>
+                            <input type="radio" name="size" value="30x40" checked={formData.size === '30x40'} onChange={handleInputChange} />
+                            <span>30" x 40"</span>
                           </label>
                         </div>
                       </div>
