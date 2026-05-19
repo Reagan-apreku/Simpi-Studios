@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="container footer-container">
         <div className="footer-col brand-col">
-          <h2 className="footer-logo">SIMPI STUDIOS</h2>
+          <img src="/images/logos/Simpi 3-02.png" alt="Simpi Studios" className="footer-logo-img" />
           <p className="footer-tagline">Capturing moments, creating memories</p>
         </div>
 

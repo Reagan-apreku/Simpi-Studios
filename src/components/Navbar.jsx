@@ -25,7 +25,7 @@ const Navbar = ({ currentPage, onPageChange }) => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         <div className="logo" onClick={() => onPageChange('home')}>
-          SIMPI STUDIOS
+          <img src="/images/logos/Simpi 3-02.png" alt="Simpi Studios" className="logo-img" />
         </div>
 
         <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
