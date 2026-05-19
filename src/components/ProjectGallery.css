@@ -232,6 +232,16 @@
   }
   .gallery-card {
     margin-bottom: 1.5rem;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .gallery-hover-overlay {
+    display: none;
+  }
+
+  .gallery-lightbox {
+    display: none;
   }
   
   .lightbox-arrow {
