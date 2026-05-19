@@ -25,38 +25,6 @@ const customPrints = [
     ],
     isCustom: true,
     size: '5" x 7"'
-  },
-  { 
-    id: 'custom-2', 
-    name: '12" x 18"', 
-    price: 1200, 
-    image: '/images/prints/2.jpg', 
-    isCustom: true,
-    size: '12" x 18"'
-  },
-  { 
-    id: 'custom-3', 
-    name: '18" x 24"', 
-    price: 1800, 
-    image: '/images/prints/3.jpg', 
-    isCustom: true,
-    size: '18" x 24"'
-  },
-  { 
-    id: 'custom-4', 
-    name: '24" x 36"', 
-    price: 2500, 
-    image: '/images/prints/4.jpg', 
-    isCustom: true,
-    size: '24" x 36"'
-  },
-  { 
-    id: 'custom-5', 
-    name: '30" x 40"', 
-    price: 3200, 
-    image: '/images/prints/5.jpg', 
-    isCustom: true,
-    size: '30" x 40"'
   }
 ];
 
