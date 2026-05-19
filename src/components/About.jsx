@@ -3,9 +3,10 @@ import './About.css';
 
 const About = () => {
   const team = [
-    { name: 'SIMPI', role: 'FOUNDER & LEAD PHOTOGRAPHER', image: '/images/hero/1.jpg' },
-    { name: 'AMA ASARE', role: 'CREATIVE DIRECTOR', image: '/images/hero/2.jpg' },
-    { name: 'KOFI BOAKYE', role: 'POST-PRODUCTION HEAD', image: '/images/hero/3.jpg' },
+    { name: 'Dominic Simpi', role: 'Founder & Lead Creative', image: '/images/hero/1.jpg' },
+    { name: 'Reagan', role: 'Photographer & Head of Tech', image: '/images/hero/2.jpg' },
+    { name: 'Eugenia', role: 'Videographer & Head of Marketing', image: '/images/hero/3.jpg' },
+    { name: 'Nicholas Kwofie', role: 'Studio Manager', image: '/images/hero/5.jpg' },
   ];
 
   const clients = [
