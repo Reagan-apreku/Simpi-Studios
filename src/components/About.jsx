@@ -15,7 +15,7 @@ const About = () => {
       image: '/images/team/reagan_apreku.jpeg'
     },
     { 
-      name: 'Eugenia', 
+      name: 'Eugenia Duodua', 
       role: 'Videographer & Head of Marketing', 
       image: '/images/hero/3.jpg' 
     },
