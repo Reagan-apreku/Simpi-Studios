@@ -378,7 +378,7 @@ const Booking = () => {
                   <div className="time-slots-container fade-in">
                     <h4>Pick a slot for {getFormattedDate(selectedDate)}</h4>
                     <p className="time-slot-reminder">
-                      * Please arrive at the studio (or location) 30 minutes early to prepare for your shoot so it doesn't eat into your booked session time.
+                      Please arrive at the studio (or designated location) at least 30 minutes before your scheduled session to allow adequate time for preparation and setup. This helps ensure your full booked session time is utilized efficiently for the shoot.
                     </p>
                     <div className="time-slots-grid">
                       {timeSlots.map((slot) => (
