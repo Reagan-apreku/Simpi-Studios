@@ -31,7 +31,7 @@ const services = [
   {
     id: 'corp-event',
     name: 'Corporate Event',
-    image: '/images/project-2.png',
+    image: '/images/bookings/007A5082SIMPI25.jpg',
     description: 'High-end coverage for conferences, summits, and corporate events.',
     isStudioOptional: false,
   },
