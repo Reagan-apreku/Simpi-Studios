@@ -4,11 +4,11 @@ import emailjs from '@emailjs/browser';
 import './Prints.css';
 
 const frames = [
-  { id: 1, name: 'Mount Gemi | Volta Region', price: 2500, image: '/images/prints/1.jpg' },
+  { id: 6, name: 'Wli Waterfalls | Volta Region', price: 2500, image: '/images/prints/wli.jpg' },
   { id: 2, name: 'Mount Adaklu | Volta Region', price: 2500, image: '/images/prints/adaklu.jpg' },
   { id: 3, name: 'Mount Wli | Volta Region', price: 2500, image: '/images/prints/3.jpg' },
   { id: 5, name: 'Boti Waterfall | Eastern Region', price: 2500, image: '/images/prints/5.jpg' },
-  { id: 6, name: 'Wli Waterfalls | Volta Region', price: 2500, image: '/images/prints/wli.jpg' },
+  { id: 1, name: 'Mount Gemi | Volta Region', price: 2500, image: '/images/prints/1.jpg' },
 ];
 
 const customPrints = [

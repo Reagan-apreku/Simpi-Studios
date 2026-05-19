@@ -25,6 +25,8 @@ const Footer = () => {
           <ul>
             <li><a href="https://www.instagram.com/simpi_studios?igsh=MWsxanYzM3F2bzI0ZQ==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
             <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Pinterest</a></li>
           </ul>
         </div>
 
@@ -32,7 +34,7 @@ const Footer = () => {
           <h3>Contact</h3>
           <p>Email: simpidominic@gmail.com</p>
           <p>Phone: +233 20 766 9921</p>
-          <p>Location: Simpi Studios</p>
+          <p>Location: NTHC Estate, Adjringanor, Accra</p>
         </div>
       </div>
       <div className="footer-bottom">
