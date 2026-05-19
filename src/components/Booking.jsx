@@ -12,14 +12,7 @@ const services = [
     objectPosition: 'center 15%',
     aspectRatio: '3 / 4',
   },
-  {
-    id: 'school-portraits',
-    name: 'School Portraits',
-    image: '/images/project-6.png',
-    description: 'Polished school milestone, yearbook, and graduation portraits.',
-    isStudioOptional: true,
-    aspectRatio: '3 / 4',
-  },
+
   {
     id: 'corp-event',
     name: 'Corporate Event',
