@@ -200,7 +200,7 @@ const ProjectGrid = ({ onProjectClick }) => {
     <section className="section-padding" id="gallery">
       <div className="container">
         <div className="section-header fade-in">
-          <h2 className="section-title">Selected Works</h2>
+          <h2 className="section-title">Gallery</h2>
           <div className="section-underline"></div>
         </div>
         <div className="project-grid">
