@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import './ProjectGallery.css';
 
 const ProjectGallery = ({ project, onBack }) => {
@@ -74,7 +75,7 @@ const ProjectGallery = ({ project, onBack }) => {
         </div>
 
         {/* Lightbox Modal */}
-        {lightboxIndex !== -1 && (
+        {lightboxIndex !== -1 && createPortal(
           <div className="gallery-lightbox" onClick={handleClose}>
             <button className="lightbox-close-btn" onClick={handleClose}>&times;</button>
             
@@ -97,7 +98,8 @@ const ProjectGallery = ({ project, onBack }) => {
             <button className="lightbox-arrow next" onClick={handleNext}>
               &#8250;
             </button>
-          </div>
+          </div>,
+          document.body
         )}
 
       </div>
