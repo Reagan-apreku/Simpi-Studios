@@ -5,7 +5,7 @@ const projects = [
   { 
     id: 1, 
     title: 'EMY AWARDS 2022', 
-    cover: '/images/gallery/emy_awards_2022/IMG_6619SIMPI22.jpg',
+    cover: '/images/gallery/emy_awards_2022/IMG_6599SIMPI22.jpg',
     images: [
       '/images/gallery/emy_awards_2022/IMG_6394SIMPI22.jpg',
       '/images/gallery/emy_awards_2022/IMG_6436SIMPI22.jpg',
