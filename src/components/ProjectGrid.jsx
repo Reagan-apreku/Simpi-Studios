@@ -192,9 +192,7 @@ const projects = [
       '/images/gallery/10_000/007A8492SIMPI25.jpg',
       '/images/gallery/10_000/007A8496SIMPI25.jpg'
     ]
-  },
-  { id: 7, title: 'CORPORATE HEADSHOTS', cover: '/images/bookings/007A8767SIMPI25.jpg', objectPosition: 'center 15%' },
-  { id: 8, title: 'FAMILY MOMENTS', cover: '/images/project-8.png' },
+  }
 ];
 
 const ProjectGrid = ({ onProjectClick }) => {
@@ -224,9 +222,6 @@ const ProjectGrid = ({ onProjectClick }) => {
               <h3 className="project-title">{project.title}</h3>
             </div>
           ))}
-        </div>
-        <div className="view-more-container">
-          <button className="view-more-btn">VIEW MORE PROJECTS</button>
         </div>
       </div>
     </section>
