@@ -38,7 +38,7 @@ const services = [
   {
     id: 'family-portraits',
     name: 'Family Portraits',
-    image: '/images/project-8.png',
+    image: '/images/gallery/dzah_family_portraits/whatsapp_cover.jpeg',
     description: 'Warm, timeless family lifestyle and portrait sessions.',
     isStudioOptional: true,
   }
