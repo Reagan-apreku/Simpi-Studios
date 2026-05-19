@@ -59,7 +59,25 @@ const projects = [
       '/images/gallery/ashesi_end_of_year_party/3C5A9888SIMPI-2024.jpg'
     ]
   },
-  { id: 3, title: 'URBAN FASHION EDITORIAL', cover: '/images/project-3.png' },
+  {
+    id: 3,
+    title: 'FASHION - MAEHYIRA MODE',
+    cover: '/images/gallery/fashion_maehyira_mode/007A1512SIMPI26.jpg',
+    images: [
+      '/images/gallery/fashion_maehyira_mode/007A1512SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1542SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1558SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1568SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1576SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1586SIMPI26-2.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1596SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1608SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1618SIMPI26-5.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1624SIMPI26-2.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1670SIMPI26.jpg',
+      '/images/gallery/fashion_maehyira_mode/007A1748SIMPI26-2.jpg'
+    ]
+  },
   { id: 4, title: 'WEDDING DAY MEMORIES', cover: '/images/project-4.png' },
   { id: 5, title: 'CULTURAL HERITAGE', cover: '/images/project-5.png' },
   { id: 6, title: 'CONTEMPORARY BEAUTY', cover: '/images/project-6.png' },
