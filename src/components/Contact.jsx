@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 const Contact = () => {
@@ -8,8 +7,6 @@ const Contact = () => {
     email: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error'
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,31 +15,15 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
+    
+    const subject = encodeURIComponent(`Inquiry from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n\n` +
+      `Message:\n${formData.message}`
+    );
 
-    const templateParams = {
-      customer_name: formData.name,
-      customer_email: formData.email,
-      message: formData.message
-    };
-
-    emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID',
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID_CONTACT || 'YOUR_TEMPLATE_ID_CONTACT',
-      templateParams,
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
-    )
-    .then((response) => {
-      console.log('Contact message sent successfully!', response.status, response.text);
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-    }, (err) => {
-      console.error('Failed to send contact message...', err);
-      setIsSubmitting(false);
-      setSubmitStatus('error');
-    });
+    window.location.href = `mailto:simpidominic@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -102,15 +83,7 @@ const Contact = () => {
                 required
               ></textarea>
             </div>
-            <button type="submit" className="submit-btn" disabled={isSubmitting}>
-              {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
-            </button>
-            {submitStatus === 'success' && (
-              <p className="submit-message success">Thank you! Your message has been sent successfully.</p>
-            )}
-            {submitStatus === 'error' && (
-              <p className="submit-message error">Something went wrong. Please try again or email us directly.</p>
-            )}
+            <button type="submit" className="submit-btn">SEND MESSAGE</button>
           </form>
         </div>
       </div>
