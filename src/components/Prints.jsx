@@ -85,10 +85,10 @@ const Prints = () => {
     };
 
     emailjs.send(
-      'YOUR_SERVICE_ID',
-      'YOUR_TEMPLATE_ID',
+      import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID',
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID_PRINTS || 'YOUR_TEMPLATE_ID',
       templateParams,
-      'YOUR_PUBLIC_KEY'
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
     )
     .then((response) => {
       console.log('Email sent successfully!', response.status, response.text);

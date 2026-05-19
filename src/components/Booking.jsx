@@ -170,10 +170,10 @@ const Booking = () => {
     };
 
     emailjs.send(
-      'YOUR_SERVICE_ID', // Replace with your Service ID
-      'YOUR_TEMPLATE_ID', // Replace with your Template ID
+      import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID',
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID_BOOKING || 'YOUR_TEMPLATE_ID',
       templateParams,
-      'YOUR_PUBLIC_KEY' // Replace with your Public Key
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
     )
     .then((response) => {
       console.log('Booking details emailed successfully!', response.status, response.text);
