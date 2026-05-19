@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     let title = 'Simpi Studios | Luxury Photography Portfolio';
-    let description = 'Simpi Studios - High-end luxury photography capturing timeless moments with refined elegance.';
+    let description = 'Simpi Studios - Capturing timeless moments with refined elegance.';
 
     if (selectedProject) {
       title = `${selectedProject.title} | Simpi Studios`;
