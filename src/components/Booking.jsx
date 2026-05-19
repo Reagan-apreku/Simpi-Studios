@@ -50,17 +50,20 @@ const months = [
   'July', 'August', 'September', 'October', 'November', 'December'
 ];
 
-const getServicePrice = (serviceId, outfitCount) => {
+const getServicePrice = (serviceId, outfitCount, shootType) => {
+  let basePrice = 0;
   if (serviceId === 'fashion-editorial') {
-    return outfitCount === '1' ? '2,000' : '3,000';
+    basePrice = outfitCount === '1' ? 2000 : 3000;
+  } else if (serviceId === 'pre-wedding') {
+    basePrice = outfitCount === '1' ? 1800 : 2500;
+  } else if (serviceId === 'family-portraits') {
+    basePrice = outfitCount === '1' ? 2500 : 3500;
+  } else {
+    return null;
   }
-  if (serviceId === 'pre-wedding') {
-    return outfitCount === '1' ? '1,800' : '2,500';
-  }
-  if (serviceId === 'family-portraits') {
-    return outfitCount === '1' ? '2,500' : '3,500';
-  }
-  return null;
+
+  const finalPrice = shootType === 'outdoor' ? basePrice + 500 : basePrice;
+  return finalPrice.toLocaleString('en-US');
 };
 
 const hasOutfitPackage = (serviceId) => {
@@ -191,7 +194,7 @@ const Booking = () => {
       customer_email: formData.email,
       customer_phone: formData.phone,
       service_name: hasOutfitPackage(selectedService.id)
-        ? `${selectedService.name} (${outfitCount} Outfit - ${getServicePrice(selectedService.id, outfitCount)} GHS)`
+        ? `${selectedService.name} (${outfitCount} Outfit - ${getServicePrice(selectedService.id, outfitCount, shootType)} GHS)`
         : selectedService.name,
       shoot_type: shootType === 'studio' ? 'Studio Shoot' : 'Outdoor/Event Shoot',
       booking_date: getFormattedDate(selectedDate),
@@ -310,14 +313,14 @@ const Booking = () => {
                         className={`type-btn ${outfitCount === '1' ? 'active' : ''}`}
                         onClick={() => setOutfitCount('1')}
                       >
-                        1 OUTFIT — {getServicePrice(selectedService.id, '1')} GHS
+                        1 OUTFIT — {getServicePrice(selectedService.id, '1', shootType)} GHS
                       </button>
                       <button 
                         type="button"
                         className={`type-btn ${outfitCount === '2' ? 'active' : ''}`}
                         onClick={() => setOutfitCount('2')}
                       >
-                        2 OUTFITS — {getServicePrice(selectedService.id, '2')} GHS
+                        2 OUTFITS — {getServicePrice(selectedService.id, '2', shootType)} GHS
                       </button>
                     </div>
                   </div>
@@ -488,7 +491,7 @@ const Booking = () => {
                       <div className="summary-row" style={{ borderTop: '1px solid #eaeaea', paddingTop: '1.2rem', marginTop: '1.2rem' }}>
                         <span className="summary-label" style={{ fontWeight: '700', color: '#111' }}>TOTAL COST:</span>
                         <span className="summary-value" style={{ fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary, #000)' }}>
-                          {getServicePrice(selectedService.id, outfitCount)} GHS
+                          {getServicePrice(selectedService.id, outfitCount, shootType)} GHS
                         </span>
                       </div>
                     </>
@@ -544,7 +547,7 @@ const Booking = () => {
                 <div className="summary-item">
                   <span>PACKAGE:</span>
                   <span>
-                    {outfitCount === '1' ? '1 Outfit' : '2 Outfits'} — {getServicePrice(selectedService.id, outfitCount)} GHS
+                    {outfitCount === '1' ? '1 Outfit' : '2 Outfits'} — {getServicePrice(selectedService.id, outfitCount, shootType)} GHS
                   </span>
                 </div>
               )}
