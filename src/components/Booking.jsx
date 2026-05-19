@@ -18,6 +18,7 @@ const services = [
     image: '/images/project-6.png',
     description: 'Polished school milestone, yearbook, and graduation portraits.',
     isStudioOptional: true,
+    aspectRatio: '3 / 4',
   },
   {
     id: 'corp-event',
@@ -25,7 +26,6 @@ const services = [
     image: '/images/project-2.png',
     description: 'High-end coverage for conferences, summits, and corporate events.',
     isStudioOptional: false,
-    aspectRatio: '3 / 4',
   },
   {
     id: 'family-portraits',
