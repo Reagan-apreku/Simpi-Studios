@@ -52,7 +52,6 @@ const ProjectGallery = ({ project, onBack }) => {
           </button>
           <div className="gallery-title-wrapper">
             <h1 className="gallery-main-title">{project.title}</h1>
-            <p className="gallery-meta">EVENT COVERAGE & ARTISTIC CAPTURES</p>
           </div>
         </div>
 
