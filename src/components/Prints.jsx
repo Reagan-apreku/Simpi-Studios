@@ -11,16 +11,58 @@ const frames = [
   { id: 5, name: 'Boti Waterfall | Eastern Region', price: 2500, image: '/images/prints/5.jpg' },
 ];
 
-const customFrameObject = {
-  id: 'custom',
-  name: 'Custom Fine Art Print',
-  price: 2500,
-  image: '/images/prints/custom_mockup.jpg',
-  isCustom: true
-};
+const customPrints = [
+  { 
+    id: 'custom-1', 
+    name: '5" x 7"', 
+    price: 600, 
+    image: '/images/prints/1.jpg',
+    images: [
+      '/images/prints/5_by_7/007A0729SIMPI26.jpg',
+      '/images/prints/5_by_7/007A0743SIMPI26.jpg',
+      '/images/prints/5_by_7/007A0784SIMPI26.jpg',
+      '/images/prints/5_by_7/007A0789SIMPI26.jpg'
+    ],
+    isCustom: true,
+    size: '5" x 7"'
+  },
+  { 
+    id: 'custom-2', 
+    name: '12" x 18"', 
+    price: 1200, 
+    image: '/images/prints/2.jpg', 
+    isCustom: true,
+    size: '12" x 18"'
+  },
+  { 
+    id: 'custom-3', 
+    name: '18" x 24"', 
+    price: 1800, 
+    image: '/images/prints/3.jpg', 
+    isCustom: true,
+    size: '18" x 24"'
+  },
+  { 
+    id: 'custom-4', 
+    name: '24" x 36"', 
+    price: 2500, 
+    image: '/images/prints/4.jpg', 
+    isCustom: true,
+    size: '24" x 36"'
+  },
+  { 
+    id: 'custom-5', 
+    name: '30" x 40"', 
+    price: 3200, 
+    image: '/images/prints/5.jpg', 
+    isCustom: true,
+    size: '30" x 40"'
+  }
+];
 
 const Prints = () => {
   const [selectedFrame, setSelectedFrame] = useState(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [orderComplete, setOrderComplete] = useState(false);
   const [orderDetails, setOrderDetails] = useState(null);
   const [formData, setFormData] = useState({
@@ -36,7 +78,12 @@ const Prints = () => {
   const calculateTotal = () => {
     if (!selectedFrame) return 0;
     
-    // Set base price by size
+    // For custom prints, price is fixed per card size
+    if (selectedFrame.isCustom) {
+      return selectedFrame.price;
+    }
+    
+    // Set base price by size for standard frames
     let total = 2500; // Base for 24x36
     if (formData.size === '30x40') {
       total = 3200;
@@ -47,6 +94,7 @@ const Prints = () => {
 
   const handleFrameClick = (frame) => {
     setSelectedFrame(frame);
+    setActiveImageIndex(0);
     setOrderComplete(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -63,17 +111,17 @@ const Prints = () => {
       customer_email: formData.email,
       customer_phone: formData.phone,
       frame_name: selectedFrame.name,
-      frame_size: formData.size,
+      frame_size: selectedFrame.isCustom ? selectedFrame.size : formData.size,
       delivery_method: formData.deliveryMethod,
       delivery_address: formData.address || 'N/A',
       total_amount: `GH₵${calculateTotal()}`,
     };
 
     emailjs.send(
-      'YOUR_SERVICE_ID', // Replace with your Service ID
-      'YOUR_TEMPLATE_ID', // Replace with your Template ID
+      'YOUR_SERVICE_ID',
+      'YOUR_TEMPLATE_ID',
       templateParams,
-      'YOUR_PUBLIC_KEY' // Replace with your Public Key
+      'YOUR_PUBLIC_KEY'
     )
     .then((response) => {
       console.log('Email sent successfully!', response.status, response.text);
@@ -86,14 +134,14 @@ const Prints = () => {
     reference: (new Date()).getTime().toString(),
     email: formData.email,
     amount: calculateTotal() * 100, // Amount in pesewas
-    publicKey: 'pk_test_a6978513a7d8178d623bf0ef2b75dd28cc98efb2', // User's public key
+    publicKey: 'pk_test_a6978513a7d8178d623bf0ef2b75dd28cc98efb2',
     currency: 'GHS',
     text: 'PROCEED TO PAYMENT',
     onSuccess: (reference) => {
       setOrderDetails({
         reference: reference.reference,
         frame: selectedFrame.name,
-        size: formData.size,
+        size: selectedFrame.isCustom ? selectedFrame.size : formData.size,
         delivery: formData.deliveryMethod,
         total: calculateTotal(),
         isCustom: selectedFrame.isCustom || false
@@ -127,7 +175,7 @@ const Prints = () => {
                 <span>{orderDetails?.reference}</span>
               </div>
               <div className="summary-item">
-                <span>FRAME:</span>
+                <span>FRAME / SIZE:</span>
                 <span>{orderDetails?.frame}</span>
               </div>
               <div className="summary-item">
@@ -153,22 +201,40 @@ const Prints = () => {
             <button className="return-btn" onClick={() => {
               setOrderComplete(false);
               setSelectedFrame(null);
+              setActiveImageIndex(0);
             }}>RETURN TO COLLECTION</button>
           </div>
         ) : (
           <>
-            <div className="prints-header">
-              <h1 className="prints-title">Fine Art Prints</h1>
-              <p className="prints-subtitle">MUSEUM QUALITY FRAMES FOR YOUR SPACE</p>
-            </div>
-
             {selectedFrame ? (
               <div className="checkout-container fade-in">
-                <button className="back-btn" onClick={() => setSelectedFrame(null)}>← BACK TO COLLECTION</button>
+                <button className="back-btn" onClick={() => {
+                  setSelectedFrame(null);
+                  setActiveImageIndex(0);
+                }}>← BACK TO COLLECTION</button>
                 <div className="checkout-content">
-                  <div className="checkout-image">
-                    <img src={selectedFrame.image} alt={selectedFrame.name} />
+                  <div className="checkout-image-container">
+                    <div className="checkout-main-image">
+                      <img 
+                        src={selectedFrame.images ? selectedFrame.images[activeImageIndex] : selectedFrame.image} 
+                        alt={selectedFrame.name} 
+                      />
+                    </div>
+                    {selectedFrame.images && selectedFrame.images.length > 0 && (
+                      <div className="checkout-thumbnails">
+                        {selectedFrame.images.map((img, idx) => (
+                          <div 
+                            key={idx} 
+                            className={`thumbnail-card ${activeImageIndex === idx ? 'active' : ''}`}
+                            onClick={() => setActiveImageIndex(idx)}
+                          >
+                            <img src={img} alt={`Sample ${idx + 1}`} />
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
+                  
                   <div className="checkout-form-container">
                     <h2>{selectedFrame.name}</h2>
                     <div className="price-display">
@@ -179,16 +245,22 @@ const Prints = () => {
                     <form className="purchase-form" onSubmit={(e) => e.preventDefault()}>
                       <div className="form-section">
                         <h3>SELECT SIZE</h3>
-                        <div className="radio-group">
-                          <label>
-                            <input type="radio" name="size" value="24x36" checked={formData.size === '24x36'} onChange={handleInputChange} />
-                            <span>24" x 36"</span>
-                          </label>
-                          <label>
-                            <input type="radio" name="size" value="30x40" checked={formData.size === '30x40'} onChange={handleInputChange} />
-                            <span>30" x 40"</span>
-                          </label>
-                        </div>
+                        {selectedFrame.isCustom ? (
+                          <div className="delivery-time-static">
+                            <span>{selectedFrame.size}</span>
+                          </div>
+                        ) : (
+                          <div className="radio-group">
+                            <label>
+                              <input type="radio" name="size" value="24x36" checked={formData.size === '24x36'} onChange={handleInputChange} />
+                              <span>24" x 36"</span>
+                            </label>
+                            <label>
+                              <input type="radio" name="size" value="30x40" checked={formData.size === '30x40'} onChange={handleInputChange} />
+                              <span>30" x 40"</span>
+                            </label>
+                          </div>
+                        )}
                       </div>
 
                       <div className="form-section">
@@ -244,6 +316,11 @@ const Prints = () => {
               </div>
             ) : (
               <>
+                <div className="prints-header">
+                  <h1 className="prints-title">Fine Art Prints</h1>
+                  <p className="prints-subtitle">MUSEUM QUALITY FRAMES FOR YOUR SPACE</p>
+                </div>
+
                 <div className="frames-grid fade-in">
                   {frames.map((frame) => (
                     <div key={frame.id} className="frame-card" onClick={() => handleFrameClick(frame)}>
@@ -261,38 +338,27 @@ const Prints = () => {
                   ))}
                 </div>
 
-                {/* Custom Print Section */}
-                <div className="custom-print-section fade-in">
-                  <div className="custom-print-content">
-                    <div className="custom-print-text">
-                      <h2>Custom Fine Art Prints</h2>
-                      <p className="custom-print-desc">
-                        Have a personal memory, portrait, or bespoke digital art you wish to print and frame? We provide museum-grade printing and custom handcrafted framing tailored precisely to your space.
-                      </p>
-                      <div className="custom-print-features">
-                        <div className="feature-item">
-                          <span className="feature-dot"></span>
-                          <span>Premium German archival paper</span>
+                {/* Custom Prints Grid Section */}
+                <div className="custom-prints-section fade-in">
+                  <div className="prints-header" style={{ marginTop: '12rem' }}>
+                    <h1 className="prints-title">Custom Prints</h1>
+                    <p className="prints-subtitle">YOUR MASTERPIECE, CUSTOM FRAMED</p>
+                  </div>
+                  <div className="frames-grid">
+                    {customPrints.map((frame) => (
+                      <div key={frame.id} className="frame-card" onClick={() => handleFrameClick(frame)}>
+                        <div className="frame-image">
+                          <img src={frame.image} alt={frame.name} />
+                          <div className="frame-overlay">
+                            <span>ORDER CUSTOM SIZES</span>
+                          </div>
                         </div>
-                        <div className="feature-item">
-                          <span className="feature-dot"></span>
-                          <span>Handcrafted luxury wood frames</span>
-                        </div>
-                        <div className="feature-item">
-                          <span className="feature-dot"></span>
-                          <span>48 hours turnaround time</span>
+                        <div className="frame-info">
+                          <h3>{frame.name}</h3>
+                          <p>GH₵{frame.price}</p>
                         </div>
                       </div>
-                      <button className="custom-print-btn" onClick={() => handleFrameClick(customFrameObject)}>
-                        ORDER CUSTOM PRINT
-                      </button>
-                    </div>
-                    <div className="custom-print-image" onClick={() => handleFrameClick(customFrameObject)}>
-                      <img src="/images/prints/custom_mockup.jpg" alt="Custom Print Frame Mockup" />
-                      <div className="image-overlay-text">
-                        <span>CUSTOM SIZES AVAILABLE</span>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </>
