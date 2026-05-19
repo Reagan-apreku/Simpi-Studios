@@ -25,7 +25,7 @@ const projects = [
   },
   {
     id: 2,
-    title: 'ASHESI END OF YEAR PARTY',
+    title: 'ASHESI END OF YEAR DINNER',
     cover: '/images/gallery/ashesi_end_of_year_party/1.jpg',
     images: [
       '/images/gallery/ashesi_end_of_year_party/007A5745SIMPI-2024.jpg',
