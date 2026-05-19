@@ -21,8 +21,8 @@ const About = () => {
     },
     { 
       name: 'Nicholas Kwofie', 
-      role: 'Studio Manager', 
-      image: '/images/hero/5.jpg' 
+      role: 'Photographer & Studio Manager', 
+      image: '/images/team/nicholas.jpg' 
     },
   ];
 
