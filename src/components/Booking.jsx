@@ -10,6 +10,7 @@ const services = [
     description: 'Professional executive portraits for teams and individuals.',
     isStudioOptional: true,
     objectPosition: 'center 15%',
+    aspectRatio: '3 / 4',
   },
   {
     id: 'corp-event',
@@ -17,6 +18,7 @@ const services = [
     image: '/images/project-2.png',
     description: 'High-end coverage for conferences, summits, and corporate events.',
     isStudioOptional: false,
+    aspectRatio: '3 / 4',
   },
   {
     id: 'school-portraits',
@@ -201,7 +203,7 @@ const Booking = () => {
             <div className="services-grid">
               {services.map((service) => (
                 <div key={service.id} className="service-card" onClick={() => handleServiceSelect(service)}>
-                  <div className="service-image">
+                  <div className="service-image" style={service.aspectRatio ? { aspectRatio: service.aspectRatio } : {}}>
                     <img 
                       src={service.image} 
                       alt={service.name} 
