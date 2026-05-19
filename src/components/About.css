@@ -100,10 +100,18 @@
   text-align: center;
 }
 
-.client-item span {
-  font-size: 0.8rem;
-  letter-spacing: 0.3em;
-  font-weight: 500;
+.client-logo {
+  max-height: 50px;
+  max-width: 85%;
+  object-fit: contain;
+  filter: grayscale(100%) invert(0.2);
+  opacity: 0.55;
+  transition: all 0.4s ease;
+}
+
+.client-item:hover .client-logo {
+  filter: grayscale(0%) invert(0);
+  opacity: 1;
 }
 
 @media (max-width: 1024px) {
