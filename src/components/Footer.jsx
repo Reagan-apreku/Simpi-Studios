@@ -34,7 +34,7 @@ const Footer = () => {
           <h3>Contact</h3>
           <p>Email: simpidominic@gmail.com</p>
           <p>Phone: +233 20 766 9921</p>
-          <p>Location: NTHC Estate, Adjringanor, Accra</p>
+          <p>Location: Simpi Studios</p>
         </div>
       </div>
       <div className="footer-bottom">

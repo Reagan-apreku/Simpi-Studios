@@ -46,7 +46,7 @@ const Contact = () => {
             </div>
             <div className="info-item">
               <h3>STUDIO</h3>
-              <p>NTHC Estate, Adjringanor</p>
+              <p>Simpi Studios</p>
               <p>Accra, Ghana</p>
               <p>Available for Travel Worldwide</p>
             </div>
