@@ -11,6 +11,14 @@ const frames = [
   { id: 5, name: 'Boti Waterfall | Eastern Region', price: 2500, image: '/images/prints/5.jpg' },
 ];
 
+const customFrameObject = {
+  id: 'custom',
+  name: 'Custom Fine Art Print',
+  price: 2500,
+  image: '/images/prints/custom_mockup.jpg',
+  isCustom: true
+};
+
 const Prints = () => {
   const [selectedFrame, setSelectedFrame] = useState(null);
   const [orderComplete, setOrderComplete] = useState(false);
@@ -87,7 +95,8 @@ const Prints = () => {
         frame: selectedFrame.name,
         size: formData.size,
         delivery: formData.deliveryMethod,
-        total: calculateTotal()
+        total: calculateTotal(),
+        isCustom: selectedFrame.isCustom || false
       });
       sendEmail(reference.reference);
       setOrderComplete(true);
@@ -105,7 +114,11 @@ const Prints = () => {
           <div className="success-container fade-in">
             <div className="success-icon">✓</div>
             <h1 className="success-title">Payment Successful</h1>
-            <p className="success-message-simpi">"Thank you for choosing Simpi Studios. We are truly honored to have our work grace your space. Our team is already preparing your frame with the utmost care and precision."</p>
+            <p className="success-message-simpi">
+              {orderDetails?.isCustom 
+                ? "Thank you for choosing Simpi Studios for your custom masterpiece. Our team will contact you shortly via phone and email to receive your high-resolution picture and coordinate the printing & framing details."
+                : "Thank you for choosing Simpi Studios. We are truly honored to have our work grace your space. Our team is already preparing your frame with the utmost care and precision."}
+            </p>
             
             <div className="order-summary">
               <h3>ORDER DETAILS</h3>
@@ -131,7 +144,11 @@ const Prints = () => {
               </div>
             </div>
 
-            <p className="success-next-steps">A confirmation email has been sent. We will contact you via phone shortly to coordinate delivery/pickup.</p>
+            <p className="success-next-steps">
+              {orderDetails?.isCustom 
+                ? "A confirmation email has been sent. Our team will reach out directly to guide you on sending the high-res file." 
+                : "A confirmation email has been sent. We will contact you via phone shortly to coordinate delivery/pickup."}
+            </p>
             
             <button className="return-btn" onClick={() => {
               setOrderComplete(false);
@@ -226,22 +243,59 @@ const Prints = () => {
                 </div>
               </div>
             ) : (
-              <div className="frames-grid fade-in">
-                {frames.map((frame) => (
-                  <div key={frame.id} className="frame-card" onClick={() => handleFrameClick(frame)}>
-                    <div className="frame-image">
-                      <img src={frame.image} alt={frame.name} />
-                      <div className="frame-overlay">
-                        <span>SELECT FRAME</span>
+              <>
+                <div className="frames-grid fade-in">
+                  {frames.map((frame) => (
+                    <div key={frame.id} className="frame-card" onClick={() => handleFrameClick(frame)}>
+                      <div className="frame-image">
+                        <img src={frame.image} alt={frame.name} />
+                        <div className="frame-overlay">
+                          <span>SELECT FRAME</span>
+                        </div>
+                      </div>
+                      <div className="frame-info">
+                        <h3>{frame.name}</h3>
+                        <p>FROM GH₵{frame.price}</p>
                       </div>
                     </div>
-                    <div className="frame-info">
-                      <h3>{frame.name}</h3>
-                      <p>FROM GH₵{frame.price}</p>
+                  ))}
+                </div>
+
+                {/* Custom Print Section */}
+                <div className="custom-print-section fade-in">
+                  <div className="custom-print-content">
+                    <div className="custom-print-text">
+                      <h2>Custom Fine Art Prints</h2>
+                      <p className="custom-print-desc">
+                        Have a personal memory, portrait, or bespoke digital art you wish to print and frame? We provide museum-grade printing and custom handcrafted framing tailored precisely to your space.
+                      </p>
+                      <div className="custom-print-features">
+                        <div className="feature-item">
+                          <span className="feature-dot"></span>
+                          <span>Premium German archival paper</span>
+                        </div>
+                        <div className="feature-item">
+                          <span className="feature-dot"></span>
+                          <span>Handcrafted luxury wood frames</span>
+                        </div>
+                        <div className="feature-item">
+                          <span className="feature-dot"></span>
+                          <span>48 hours turnaround time</span>
+                        </div>
+                      </div>
+                      <button className="custom-print-btn" onClick={() => handleFrameClick(customFrameObject)}>
+                        ORDER CUSTOM PRINT
+                      </button>
+                    </div>
+                    <div className="custom-print-image" onClick={() => handleFrameClick(customFrameObject)}>
+                      <img src="/images/prints/custom_mockup.jpg" alt="Custom Print Frame Mockup" />
+                      <div className="image-overlay-text">
+                        <span>CUSTOM SIZES AVAILABLE</span>
+                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              </>
             )}
           </>
         )}

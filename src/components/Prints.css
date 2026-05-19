@@ -359,3 +359,111 @@
   display: inline-block;
   text-transform: uppercase;
 }
+
+/* Custom Print Section */
+.custom-print-section {
+  margin-top: 16rem;
+  border-top: 1px solid #eee;
+  padding-top: 10rem;
+}
+
+.custom-print-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 8rem;
+  align-items: center;
+}
+
+.custom-print-text h2 {
+  font-size: 3rem;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.custom-print-desc {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 3.5rem;
+}
+
+.custom-print-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--secondary);
+  text-transform: uppercase;
+}
+
+.feature-dot {
+  width: 5px;
+  height: 5px;
+  background-color: var(--secondary);
+  border-radius: 50%;
+}
+
+.custom-print-btn {
+  padding: 1.5rem 3.5rem;
+  background-color: var(--secondary);
+  color: var(--primary);
+  border: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.custom-print-btn:hover {
+  background-color: #333;
+}
+
+.custom-print-image {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #f8f8f8;
+}
+
+.custom-print-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.custom-print-image:hover img {
+  transform: scale(1.03);
+}
+
+.image-overlay-text {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 1rem 1.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--secondary);
+}
+
+@media (max-width: 1024px) {
+  .custom-print-content {
+    grid-template-columns: 1fr;
+    gap: 6rem;
+  }
+  
+  .custom-print-image {
+    order: -1;
+  }
+}
