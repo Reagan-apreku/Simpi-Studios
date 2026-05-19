@@ -21,6 +21,14 @@ const services = [
     aspectRatio: '3 / 4',
   },
   {
+    id: 'pre-wedding',
+    name: 'Pre Wedding',
+    image: '/images/hero-2.png',
+    description: 'Romantic and artistic pre-wedding sessions to capture your love story.',
+    isStudioOptional: true,
+    aspectRatio: '3 / 4',
+  },
+  {
     id: 'corp-event',
     name: 'Corporate Event',
     image: '/images/project-2.png',
@@ -274,8 +282,8 @@ const Booking = () => {
                   </div>
                 )}
 
-                {/* Package Toggle for Fashion Editorial */}
-                {selectedService.id === 'fashion-editorial' && (
+                {/* Package Toggle for Fashion Editorial & Pre Wedding */}
+                {(selectedService.id === 'fashion-editorial' || selectedService.id === 'pre-wedding') && (
                   <div className="outfit-selection-container" style={{ marginBottom: '2.5rem' }}>
                     <h4 style={{ fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#666', marginBottom: '1rem' }}>Select Outfit Package</h4>
                     <div className="shoot-type-toggle">
@@ -284,14 +292,14 @@ const Booking = () => {
                         className={`type-btn ${outfitCount === '1' ? 'active' : ''}`}
                         onClick={() => setOutfitCount('1')}
                       >
-                        1 OUTFIT — 2,000 GHS
+                        1 OUTFIT — {selectedService.id === 'fashion-editorial' ? '2,000' : '1,800'} GHS
                       </button>
                       <button 
                         type="button"
                         className={`type-btn ${outfitCount === '2' ? 'active' : ''}`}
                         onClick={() => setOutfitCount('2')}
                       >
-                        2 OUTFITS — 3,000 GHS
+                        2 OUTFITS — {selectedService.id === 'fashion-editorial' ? '3,000' : '2,500'} GHS
                       </button>
                     </div>
                   </div>
@@ -450,7 +458,7 @@ const Booking = () => {
                     <span className="summary-label">SERVICE:</span>
                     <span className="summary-value">{selectedService.name}</span>
                   </div>
-                  {selectedService.id === 'fashion-editorial' && (
+                  {(selectedService.id === 'fashion-editorial' || selectedService.id === 'pre-wedding') && (
                     <>
                       <div className="summary-row">
                         <span className="summary-label">PACKAGE:</span>
@@ -459,7 +467,9 @@ const Booking = () => {
                       <div className="summary-row" style={{ borderTop: '1px solid #eaeaea', paddingTop: '1.2rem', marginTop: '1.2rem' }}>
                         <span className="summary-label" style={{ fontWeight: '700', color: '#111' }}>TOTAL COST:</span>
                         <span className="summary-value" style={{ fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary, #000)' }}>
-                          {outfitCount === '1' ? '2,000 GHS' : '3,000 GHS'}
+                          {selectedService.id === 'fashion-editorial'
+                            ? (outfitCount === '1' ? '2,000 GHS' : '3,000 GHS')
+                            : (outfitCount === '1' ? '1,800 GHS' : '2,500 GHS')}
                         </span>
                       </div>
                     </>
@@ -503,10 +513,14 @@ const Booking = () => {
                 <span>SERVICE:</span>
                 <span>{selectedService?.name}</span>
               </div>
-              {selectedService?.id === 'fashion-editorial' && (
+              {(selectedService?.id === 'fashion-editorial' || selectedService?.id === 'pre-wedding') && (
                 <div className="summary-item">
                   <span>PACKAGE:</span>
-                  <span>{outfitCount === '1' ? '1 Outfit (2,000 GHS)' : '2 Outfits (3,000 GHS)'}</span>
+                  <span>
+                    {outfitCount === '1' ? '1 Outfit' : '2 Outfits'} — {selectedService.id === 'fashion-editorial'
+                      ? (outfitCount === '1' ? '2,000 GHS' : '3,000 GHS')
+                      : (outfitCount === '1' ? '1,800 GHS' : '2,500 GHS')}
+                  </span>
                 </div>
               )}
               <div className="summary-item">
