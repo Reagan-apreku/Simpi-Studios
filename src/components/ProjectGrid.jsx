@@ -142,7 +142,7 @@ const projects = [
   },
   {
     id: 6,
-    title: '10,000',
+    title: 'PRE WEDDING PHOTOSHOOT',
     cover: '/images/gallery/10_000/007A8334SIMPI25.jpg',
     images: [
       '/images/gallery/10_000/007A8196SIMPI25.jpg',
