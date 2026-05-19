@@ -22,7 +22,7 @@ const services = [
   },
   {
     id: 'pre-wedding',
-    name: 'Pre Wedding',
+    name: 'Pre Weddings',
     image: '/images/gallery/10_000/007A8334SIMPI25.jpg',
     description: 'Romantic and artistic pre-wedding sessions to capture your love story.',
     isStudioOptional: true,
@@ -30,7 +30,7 @@ const services = [
   },
   {
     id: 'corp-event',
-    name: 'Corporate Event',
+    name: 'Corporate Events',
     image: '/images/bookings/007A5082SIMPI25.jpg',
     description: 'High-end coverage for conferences, summits, and corporate events.',
     isStudioOptional: false,
