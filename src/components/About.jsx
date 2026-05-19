@@ -30,7 +30,6 @@ const About = () => {
     { name: 'Ashesi University', logo: '/images/logos/1770310526903-Ashesi_Logo.png' },
     { name: 'UKGCC', logo: '/images/logos/UKGCC-Logo.png' },
     { name: 'VBCI', logo: '/images/logos/transparent-vbci-logo.png' },
-    { name: 'EMY Africa', logo: '/images/logos/EMY-Africa-DP-1.png' },
     { name: 'ACI', logo: '/images/logos/aci_new.png' },
     { name: 'UNESCO', logo: '/images/logos/Logo_UNESCO_2021.svg.png' },
     { name: 'Client Logo', logo: '/images/logos/images.jpeg' },
@@ -78,7 +77,7 @@ const About = () => {
 
         {/* Clients Section */}
         <div className="about-clients">
-          <h2 className="section-title-small">SELECTED CLIENTS</h2>
+          <h2 className="section-title-small">CLIENTELE</h2>
           <div className="clients-grid">
             {clients.map((client, index) => (
               <div key={index} className="client-item">
