@@ -3,10 +3,27 @@ import './About.css';
 
 const About = () => {
   const team = [
-    { name: 'Dominic Simpi', role: 'Founder & Lead Creative', image: '/images/hero/1.jpg' },
-    { name: 'Reagan Apreku', role: 'Photographer & Head of Tech', image: '/images/hero/2.jpg' },
-    { name: 'Eugenia', role: 'Videographer & Head of Marketing', image: '/images/hero/3.jpg' },
-    { name: 'Nicholas Kwofie', role: 'Studio Manager', image: '/images/hero/5.jpg' },
+    { 
+      name: 'Dominic Simpi', 
+      role: 'Founder & Lead Creative', 
+      image: '/images/team/dominic_simpi.jpg',
+      objectPosition: 'center 15%'
+    },
+    { 
+      name: 'Reagan Apreku', 
+      role: 'Photographer & Head of Tech', 
+      image: '/images/team/reagan_apreku.jpeg'
+    },
+    { 
+      name: 'Eugenia', 
+      role: 'Videographer & Head of Marketing', 
+      image: '/images/hero/3.jpg' 
+    },
+    { 
+      name: 'Nicholas Kwofie', 
+      role: 'Studio Manager', 
+      image: '/images/hero/5.jpg' 
+    },
   ];
 
   const clients = [
@@ -39,7 +56,11 @@ const About = () => {
             {team.map((member, index) => (
               <div key={index} className="team-member">
                 <div className="member-image">
-                  <img src={member.image} alt={member.name} />
+                  <img 
+                    src={member.image} 
+                    alt={member.name} 
+                    style={member.objectPosition ? { objectPosition: member.objectPosition } : {}}
+                  />
                 </div>
                 <div className="member-info">
                   <h3>{member.name}</h3>
