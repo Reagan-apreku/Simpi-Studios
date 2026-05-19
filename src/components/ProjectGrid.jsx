@@ -2,7 +2,27 @@ import React from 'react';
 import './ProjectGrid.css';
 
 const projects = [
-  { id: 1, title: 'MAMA EVELYN @ 70', cover: '/images/project-1.png' },
+  { 
+    id: 1, 
+    title: 'EMY AWARDS 2022', 
+    cover: '/images/gallery/emy_awards_2022/IMG_6619SIMPI22.jpg',
+    images: [
+      '/images/gallery/emy_awards_2022/IMG_6394SIMPI22.jpg',
+      '/images/gallery/emy_awards_2022/IMG_6436SIMPI22.jpg',
+      '/images/gallery/emy_awards_2022/IMG_6439SIMPI22.jpg',
+      '/images/gallery/emy_awards_2022/IMG_6443SIMPI22.jpg',
+      '/images/gallery/emy_awards_2022/IMG_6530SIMPI22.jpg',
+      '/images/gallery/emy_awards_2022/IMG_6599SIMPI22.jpg',
+      '/images/gallery/emy_awards_2022/IMG_6607SIMPI22.jpg',
+      '/images/gallery/emy_awards_2022/IMG_6610SIMPI22.jpg',
+      '/images/gallery/emy_awards_2022/IMG_6619SIMPI22.jpg',
+      '/images/gallery/emy_awards_2022/IMG_6620SIMPI22.jpg',
+      '/images/gallery/emy_awards_2022/IMG_6624SIMPI22.jpg',
+      '/images/gallery/emy_awards_2022/IMG_6630SIMPI22.jpg',
+      '/images/gallery/emy_awards_2022/IMG_6639SIMPI22.jpg',
+      '/images/gallery/emy_awards_2022/IMG_6681SIMPI22.jpg'
+    ]
+  },
   { id: 2, title: 'GOLDEN HOUR PORTRAITS', cover: '/images/project-2.png' },
   { id: 3, title: 'URBAN FASHION EDITORIAL', cover: '/images/project-3.png' },
   { id: 4, title: 'WEDDING DAY MEMORIES', cover: '/images/project-4.png' },
@@ -12,7 +32,7 @@ const projects = [
   { id: 8, title: 'FAMILY MOMENTS', cover: '/images/project-8.png' },
 ];
 
-const ProjectGrid = () => {
+const ProjectGrid = ({ onProjectClick }) => {
   return (
     <section className="section-padding" id="gallery">
       <div className="container">
@@ -25,6 +45,7 @@ const ProjectGrid = () => {
             <div 
               key={project.id} 
               className="project-card fade-in" 
+              onClick={() => onProjectClick && onProjectClick(project)}
             >
               <div className="project-image-container">
                 <img src={project.cover} alt={project.title} loading="lazy" />
