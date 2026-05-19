@@ -28,8 +28,9 @@ const projects = [
     title: 'ASHESI END OF YEAR PARTY',
     cover: '/images/gallery/ashesi_end_of_year_party/1.jpg',
     images: [
-      '/images/gallery/ashesi_end_of_year_party/007A5225SIMPI-2024.jpg',
       '/images/gallery/ashesi_end_of_year_party/007A5745SIMPI-2024.jpg',
+      '/images/gallery/ashesi_end_of_year_party/3C5A9722SIMPI-2024.jpg',
+      '/images/gallery/ashesi_end_of_year_party/007A5225SIMPI-2024.jpg',
       '/images/gallery/ashesi_end_of_year_party/007A5975SIMPI-2024.jpg',
       '/images/gallery/ashesi_end_of_year_party/007A5985SIMPI-2024.jpg',
       '/images/gallery/ashesi_end_of_year_party/007A6057SIMPI-2024.jpg',
@@ -55,7 +56,6 @@ const projects = [
       '/images/gallery/ashesi_end_of_year_party/3C5A9683SIMPI-2024.jpg',
       '/images/gallery/ashesi_end_of_year_party/3C5A9688SIMPI-2024.jpg',
       '/images/gallery/ashesi_end_of_year_party/3C5A9715SIMPI-2024.jpg',
-      '/images/gallery/ashesi_end_of_year_party/3C5A9722SIMPI-2024.jpg',
       '/images/gallery/ashesi_end_of_year_party/3C5A9888SIMPI-2024.jpg'
     ]
   },
