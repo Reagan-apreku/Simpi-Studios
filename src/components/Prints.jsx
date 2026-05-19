@@ -5,7 +5,7 @@ import './Prints.css';
 
 const frames = [
   { id: 1, name: 'Mount Gemi | Volta Region', price: 1500, image: '/images/prints/1.jpg' },
-  { id: 2, name: 'MINIMAL WHITE MAPLE', price: 1800, image: '/images/prints/2.jpg' },
+  { id: 2, name: 'Mount Adaklu | Volta Region', price: 1800, image: '/images/prints/2.jpg' },
   { id: 3, name: 'NATURAL WALNUT', price: 2200, image: '/images/prints/3.jpg' },
   { id: 4, name: 'VINTAGE GOLD LEAF', price: 2500, image: '/images/prints/4.jpg' },
   { id: 5, name: 'MODERN BRUSHED STEEL', price: 2000, image: '/images/prints/5.jpg' },
