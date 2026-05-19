@@ -12,7 +12,14 @@ const services = [
     objectPosition: 'center 15%',
     aspectRatio: '3 / 4',
   },
-
+  {
+    id: 'fashion-editorial',
+    name: 'Fashion Editorial',
+    image: '/images/gallery/fashion_maehyira_mode/007A1596SIMPI26.jpg',
+    description: 'High-end editorial, runway, and lookbook photography for brands and designers.',
+    isStudioOptional: true,
+    aspectRatio: '3 / 4',
+  },
   {
     id: 'corp-event',
     name: 'Corporate Event',
