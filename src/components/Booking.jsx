@@ -489,6 +489,14 @@ const Booking = () => {
                       </div>
                     </>
                   )}
+                  {selectedService.id === 'corp-event' && (
+                    <div className="summary-row" style={{ borderTop: '1px solid #eaeaea', paddingTop: '1.2rem', marginTop: '1.2rem', display: 'block' }}>
+                      <span className="summary-label" style={{ fontWeight: '700', color: '#111', display: 'block', marginBottom: '0.6rem' }}>PRICING:</span>
+                      <p style={{ fontSize: '0.8rem', color: '#555', lineHeight: '1.5', margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: '500' }}>
+                        OUR PRODUCTION TEAM WILL REACH OUT TO DISCUSS THE SCOPE OF THE PROJECT TO DEFINE CUSTOM PRICING.
+                      </p>
+                    </div>
+                  )}
                   <div className="summary-row">
                     <span className="summary-label">SHOOT TYPE:</span>
                     <span className="summary-value">{shootType === 'studio' ? 'Studio Shoot' : 'Outdoor Shoot'}</span>
@@ -533,6 +541,14 @@ const Booking = () => {
                   <span>PACKAGE:</span>
                   <span>
                     {outfitCount === '1' ? '1 Outfit' : '2 Outfits'} — {getServicePrice(selectedService.id, outfitCount)} GHS
+                  </span>
+                </div>
+              )}
+              {selectedService?.id === 'corp-event' && (
+                <div className="summary-item" style={{ display: 'block', borderTop: '1px solid #eee', paddingTop: '1.2rem', marginTop: '1.2rem', paddingBottom: '0.2rem' }}>
+                  <span style={{ display: 'block', fontWeight: '700', marginBottom: '0.5rem', fontSize: '0.75rem', letterSpacing: '0.15em', color: '#111' }}>PRICING:</span>
+                  <span style={{ display: 'block', color: '#555', fontSize: '0.85rem', lineHeight: '1.5', textTransform: 'none', letterSpacing: 'normal' }}>
+                    Our production team will reach out to discuss the scope of your project in order to provide a custom price estimate.
                   </span>
                 </div>
               )}
