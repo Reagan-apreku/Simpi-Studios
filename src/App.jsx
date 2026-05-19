@@ -8,6 +8,7 @@ import ComingSoon from './components/ComingSoon';
 import Contact from './components/Contact';
 import About from './components/About';
 import Prints from './components/Prints';
+import Booking from './components/Booking';
 import './App.css';
 
 const projects = [
@@ -34,7 +35,7 @@ function App() {
           </>
         );
       case 'bookings':
-        return <ComingSoon title="Bookings" />;
+        return <Booking />;
       case 'prints':
         return <Prints />;
       case 'about':
