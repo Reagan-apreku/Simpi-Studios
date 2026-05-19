@@ -32,8 +32,8 @@ const Footer = () => {
 
         <div className="footer-col">
           <h3>Contact</h3>
-          <p>Email: info@simpistudios.com</p>
-          <p>Phone: +233 XX XXX XXXX</p>
+          <p>Email: simpidominic@gmail.com</p>
+          <p>Phone: +233 20 766 9921</p>
           <p>Location: Accra, Ghana</p>
         </div>
       </div>
