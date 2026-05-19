@@ -49,6 +49,23 @@ const months = [
   'July', 'August', 'September', 'October', 'November', 'December'
 ];
 
+const getServicePrice = (serviceId, outfitCount) => {
+  if (serviceId === 'fashion-editorial') {
+    return outfitCount === '1' ? '2,000' : '3,000';
+  }
+  if (serviceId === 'pre-wedding') {
+    return outfitCount === '1' ? '1,800' : '2,500';
+  }
+  if (serviceId === 'family-portraits') {
+    return outfitCount === '1' ? '2,500' : '3,500';
+  }
+  return null;
+};
+
+const hasOutfitPackage = (serviceId) => {
+  return ['fashion-editorial', 'pre-wedding', 'family-portraits'].includes(serviceId);
+};
+
 const Booking = () => {
   const [step, setStep] = useState(1); // 1: Service Selection, 2: Date, Time & Details, 3: Success
   const [selectedService, setSelectedService] = useState(null);
@@ -172,8 +189,8 @@ const Booking = () => {
       customer_name: formData.name,
       customer_email: formData.email,
       customer_phone: formData.phone,
-      service_name: selectedService.id === 'fashion-editorial' 
-        ? `${selectedService.name} (${outfitCount} Outfit - ${outfitCount === '1' ? '2,000 GHS' : '3,000 GHS'})`
+      service_name: hasOutfitPackage(selectedService.id)
+        ? `${selectedService.name} (${outfitCount} Outfit - ${getServicePrice(selectedService.id, outfitCount)} GHS)`
         : selectedService.name,
       shoot_type: shootType === 'studio' ? 'Studio Shoot' : 'Outdoor/Event Shoot',
       booking_date: getFormattedDate(selectedDate),
@@ -282,8 +299,8 @@ const Booking = () => {
                   </div>
                 )}
 
-                {/* Package Toggle for Fashion Editorial & Pre Wedding */}
-                {(selectedService.id === 'fashion-editorial' || selectedService.id === 'pre-wedding') && (
+                {/* Package Toggle for Services with Outfit Options */}
+                {hasOutfitPackage(selectedService.id) && (
                   <div className="outfit-selection-container" style={{ marginBottom: '2.5rem' }}>
                     <h4 style={{ fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#666', marginBottom: '1rem' }}>Select Outfit Package</h4>
                     <div className="shoot-type-toggle">
@@ -292,14 +309,14 @@ const Booking = () => {
                         className={`type-btn ${outfitCount === '1' ? 'active' : ''}`}
                         onClick={() => setOutfitCount('1')}
                       >
-                        1 OUTFIT — {selectedService.id === 'fashion-editorial' ? '2,000' : '1,800'} GHS
+                        1 OUTFIT — {getServicePrice(selectedService.id, '1')} GHS
                       </button>
                       <button 
                         type="button"
                         className={`type-btn ${outfitCount === '2' ? 'active' : ''}`}
                         onClick={() => setOutfitCount('2')}
                       >
-                        2 OUTFITS — {selectedService.id === 'fashion-editorial' ? '3,000' : '2,500'} GHS
+                        2 OUTFITS — {getServicePrice(selectedService.id, '2')} GHS
                       </button>
                     </div>
                   </div>
@@ -458,7 +475,7 @@ const Booking = () => {
                     <span className="summary-label">SERVICE:</span>
                     <span className="summary-value">{selectedService.name}</span>
                   </div>
-                  {(selectedService.id === 'fashion-editorial' || selectedService.id === 'pre-wedding') && (
+                  {hasOutfitPackage(selectedService.id) && (
                     <>
                       <div className="summary-row">
                         <span className="summary-label">PACKAGE:</span>
@@ -467,9 +484,7 @@ const Booking = () => {
                       <div className="summary-row" style={{ borderTop: '1px solid #eaeaea', paddingTop: '1.2rem', marginTop: '1.2rem' }}>
                         <span className="summary-label" style={{ fontWeight: '700', color: '#111' }}>TOTAL COST:</span>
                         <span className="summary-value" style={{ fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary, #000)' }}>
-                          {selectedService.id === 'fashion-editorial'
-                            ? (outfitCount === '1' ? '2,000 GHS' : '3,000 GHS')
-                            : (outfitCount === '1' ? '1,800 GHS' : '2,500 GHS')}
+                          {getServicePrice(selectedService.id, outfitCount)} GHS
                         </span>
                       </div>
                     </>
@@ -513,13 +528,11 @@ const Booking = () => {
                 <span>SERVICE:</span>
                 <span>{selectedService?.name}</span>
               </div>
-              {(selectedService?.id === 'fashion-editorial' || selectedService?.id === 'pre-wedding') && (
+              {hasOutfitPackage(selectedService?.id) && (
                 <div className="summary-item">
                   <span>PACKAGE:</span>
                   <span>
-                    {outfitCount === '1' ? '1 Outfit' : '2 Outfits'} — {selectedService.id === 'fashion-editorial'
-                      ? (outfitCount === '1' ? '2,000 GHS' : '3,000 GHS')
-                      : (outfitCount === '1' ? '1,800 GHS' : '2,500 GHS')}
+                    {outfitCount === '1' ? '1 Outfit' : '2 Outfits'} — {getServicePrice(selectedService.id, outfitCount)} GHS
                   </span>
                 </div>
               )}
