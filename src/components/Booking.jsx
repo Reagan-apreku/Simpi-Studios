@@ -13,19 +13,19 @@ const services = [
     aspectRatio: '3 / 4',
   },
   {
+    id: 'school-portraits',
+    name: 'School Portraits',
+    image: '/images/project-6.png',
+    description: 'Polished school milestone, yearbook, and graduation portraits.',
+    isStudioOptional: true,
+  },
+  {
     id: 'corp-event',
     name: 'Corporate Event',
     image: '/images/project-2.png',
     description: 'High-end coverage for conferences, summits, and corporate events.',
     isStudioOptional: false,
     aspectRatio: '3 / 4',
-  },
-  {
-    id: 'school-portraits',
-    name: 'School Portraits',
-    image: '/images/project-6.png',
-    description: 'Polished school milestone, yearbook, and graduation portraits.',
-    isStudioOptional: true,
   },
   {
     id: 'family-portraits',
