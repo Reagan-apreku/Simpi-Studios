@@ -119,7 +119,7 @@ const projects = [
   },
   {
     id: 5,
-    title: "THE DZAH's - FAMILY PORTRAITS",
+    title: "THE DZAHs - FAMILY PORTRAITS",
     cover: '/images/gallery/dzah_family_portraits/whatsapp_cover.jpeg',
     images: [
       '/images/gallery/dzah_family_portraits/whatsapp_cover.jpeg',
