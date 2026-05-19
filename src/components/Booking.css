@@ -341,6 +341,17 @@
   text-align: center;
 }
 
+.time-slot-reminder {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+  margin-top: -1.2rem;
+  margin-bottom: 2.2rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  font-style: italic;
+}
+
 .time-slots-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

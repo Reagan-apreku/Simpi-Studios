@@ -377,6 +377,9 @@ const Booking = () => {
                 {selectedDate && (
                   <div className="time-slots-container fade-in">
                     <h4>Pick a slot for {getFormattedDate(selectedDate)}</h4>
+                    <p className="time-slot-reminder">
+                      * Please arrive at the studio (or location) 30 minutes early to prepare for your shoot so it doesn't eat into your booked session time.
+                    </p>
                     <div className="time-slots-grid">
                       {timeSlots.map((slot) => (
                         <button 
