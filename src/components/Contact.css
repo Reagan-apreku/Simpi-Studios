@@ -108,3 +108,18 @@
     margin-bottom: 4rem;
   }
 }
+
+.submit-message {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  animation: fadeIn 0.4s forwards;
+}
+
+.submit-message.success {
+  color: #007A50;
+}
+
+.submit-message.error {
+  color: #c0392b;
+}
