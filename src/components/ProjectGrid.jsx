@@ -117,7 +117,28 @@ const projects = [
       '/images/gallery/uk_ghana_business_awards/007A5700SIMPI25.jpg'
     ]
   },
-  { id: 5, title: 'CULTURAL HERITAGE', cover: '/images/project-5.png' },
+  {
+    id: 5,
+    title: 'THE DZAH FAMILY PORTRAITS',
+    cover: '/images/gallery/dzah_family_portraits/007A5083SIMPI-2024.jpg',
+    images: [
+      '/images/gallery/dzah_family_portraits/007A5083SIMPI-2024.jpg',
+      '/images/gallery/dzah_family_portraits/007A5156SIMPI-2024.jpg',
+      '/images/gallery/dzah_family_portraits/007A5344SIMPI-2024.jpg',
+      '/images/gallery/dzah_family_portraits/007A5359SIMPI-2024.jpg',
+      '/images/gallery/dzah_family_portraits/007A5442SIMPI-2024.jpg',
+      '/images/gallery/dzah_family_portraits/007A5538SIMPI-2024.jpg',
+      '/images/gallery/dzah_family_portraits/007A5544SIMPI-2024.jpg',
+      '/images/gallery/dzah_family_portraits/007A5567SIMPI-2024.jpg',
+      '/images/gallery/dzah_family_portraits/007A5571SIMPI-2024.jpg',
+      '/images/gallery/dzah_family_portraits/007A5580SIMPI-2024.jpg',
+      '/images/gallery/dzah_family_portraits/007A5586SIMPI-2024.jpg',
+      '/images/gallery/dzah_family_portraits/007A5595SIMPI-2024.jpg',
+      '/images/gallery/dzah_family_portraits/007A5612SIMPI-2024.jpg',
+      '/images/gallery/dzah_family_portraits/007A5663SIMPI-2024.jpg',
+      '/images/gallery/dzah_family_portraits/007A5728SIMPI-2024.jpg'
+    ]
+  },
   { id: 6, title: 'CONTEMPORARY BEAUTY', cover: '/images/project-6.png' },
   { id: 7, title: 'CORPORATE HEADSHOTS', cover: '/images/bookings/007A8767SIMPI25.jpg', objectPosition: 'center 15%' },
   { id: 8, title: 'FAMILY MOMENTS', cover: '/images/project-8.png' },
