@@ -51,6 +51,7 @@ const Booking = () => {
   const [currentDateObj, setCurrentDateObj] = useState(new Date(2026, 4, 19)); // May 2026 from sample image
   const [selectedTime, setSelectedTime] = useState('');
   const [customTime, setCustomTime] = useState('');
+  const [outfitCount, setOutfitCount] = useState('1'); // '1' or '2' for fashion editorial
   
   // Form States
   const [formData, setFormData] = useState({
@@ -71,6 +72,7 @@ const Booking = () => {
     setShootType(service.isStudioOptional ? 'studio' : 'outdoor');
     setSelectedTime('');
     setSelectedDate(null);
+    setOutfitCount('1');
     setStep(2);
   };
 
@@ -162,7 +164,9 @@ const Booking = () => {
       customer_name: formData.name,
       customer_email: formData.email,
       customer_phone: formData.phone,
-      service_name: selectedService.name,
+      service_name: selectedService.id === 'fashion-editorial' 
+        ? `${selectedService.name} (${outfitCount} Outfit - ${outfitCount === '1' ? '2,000 GHS' : '3,000 GHS'})`
+        : selectedService.name,
       shoot_type: shootType === 'studio' ? 'Studio Shoot' : 'Outdoor/Event Shoot',
       booking_date: getFormattedDate(selectedDate),
       booking_time: finalTime,
@@ -267,6 +271,29 @@ const Booking = () => {
                     >
                       OUTDOOR / ON-LOCATION
                     </button>
+                  </div>
+                )}
+
+                {/* Package Toggle for Fashion Editorial */}
+                {selectedService.id === 'fashion-editorial' && (
+                  <div className="outfit-selection-container" style={{ marginBottom: '2.5rem' }}>
+                    <h4 style={{ fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#666', marginBottom: '1rem' }}>Select Outfit Package</h4>
+                    <div className="shoot-type-toggle">
+                      <button 
+                        type="button"
+                        className={`type-btn ${outfitCount === '1' ? 'active' : ''}`}
+                        onClick={() => setOutfitCount('1')}
+                      >
+                        1 OUTFIT — 2,000 GHS
+                      </button>
+                      <button 
+                        type="button"
+                        className={`type-btn ${outfitCount === '2' ? 'active' : ''}`}
+                        onClick={() => setOutfitCount('2')}
+                      >
+                        2 OUTFITS — 3,000 GHS
+                      </button>
+                    </div>
                   </div>
                 )}
 
@@ -423,6 +450,20 @@ const Booking = () => {
                     <span className="summary-label">SERVICE:</span>
                     <span className="summary-value">{selectedService.name}</span>
                   </div>
+                  {selectedService.id === 'fashion-editorial' && (
+                    <>
+                      <div className="summary-row">
+                        <span className="summary-label">PACKAGE:</span>
+                        <span className="summary-value">{outfitCount === '1' ? '1 Outfit' : '2 Outfits'}</span>
+                      </div>
+                      <div className="summary-row" style={{ borderTop: '1px solid #eaeaea', paddingTop: '1.2rem', marginTop: '1.2rem' }}>
+                        <span className="summary-label" style={{ fontWeight: '700', color: '#111' }}>TOTAL COST:</span>
+                        <span className="summary-value" style={{ fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary, #000)' }}>
+                          {outfitCount === '1' ? '2,000 GHS' : '3,000 GHS'}
+                        </span>
+                      </div>
+                    </>
+                  )}
                   <div className="summary-row">
                     <span className="summary-label">SHOOT TYPE:</span>
                     <span className="summary-value">{shootType === 'studio' ? 'Studio Shoot' : 'Outdoor Shoot'}</span>
@@ -462,6 +503,12 @@ const Booking = () => {
                 <span>SERVICE:</span>
                 <span>{selectedService?.name}</span>
               </div>
+              {selectedService?.id === 'fashion-editorial' && (
+                <div className="summary-item">
+                  <span>PACKAGE:</span>
+                  <span>{outfitCount === '1' ? '1 Outfit (2,000 GHS)' : '2 Outfits (3,000 GHS)'}</span>
+                </div>
+              )}
               <div className="summary-item">
                 <span>DATE:</span>
                 <span>{getFormattedDate(selectedDate)}</span>
