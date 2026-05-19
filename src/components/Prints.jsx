@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser';
 import './Prints.css';
 
 const frames = [
-  { id: 1, name: 'CLASSIC BLACK OAK', price: 1500, image: '/images/prints/1.jpg' },
+  { id: 1, name: 'Mount Gemi- Volta Region', price: 1500, image: '/images/prints/1.jpg' },
   { id: 2, name: 'MINIMAL WHITE MAPLE', price: 1800, image: '/images/prints/2.jpg' },
   { id: 3, name: 'NATURAL WALNUT', price: 2200, image: '/images/prints/3.jpg' },
   { id: 4, name: 'VINTAGE GOLD LEAF', price: 2500, image: '/images/prints/4.jpg' },
