@@ -17,7 +17,8 @@ const About = () => {
     { 
       name: 'Eugenia Duodua', 
       role: 'Videographer & Head of Marketing', 
-      image: '/images/team/eugenia.jpg' 
+      image: '/images/team/eugenia.jpg',
+      objectPosition: 'center 20%' 
     },
     { 
       name: 'Nicholas Kwofie', 
