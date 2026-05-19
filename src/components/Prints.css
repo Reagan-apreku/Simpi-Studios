@@ -349,3 +349,13 @@
     font-size: 1rem;
   }
 }
+
+.delivery-time-static {
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: var(--secondary);
+  border: 1px solid #eee;
+  padding: 1.2rem 2rem;
+  display: inline-block;
+  text-transform: uppercase;
+}

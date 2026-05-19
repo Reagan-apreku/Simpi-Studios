@@ -17,7 +17,7 @@ const Prints = () => {
   const [orderDetails, setOrderDetails] = useState(null);
   const [formData, setFormData] = useState({
     size: '24x36',
-    deliveryTime: '72h',
+    deliveryTime: '48h',
     deliveryMethod: 'delivery',
     name: '',
     email: '',
@@ -32,11 +32,6 @@ const Prints = () => {
     let total = 2500; // Base for 24x36
     if (formData.size === '30x40') {
       total = 3200;
-    }
-    
-    // Express duration fee
-    if (formData.deliveryTime === '48h') {
-      total += 100;
     }
     
     return total;
@@ -181,15 +176,8 @@ const Prints = () => {
 
                       <div className="form-section">
                         <h3>DELIVERY TIME</h3>
-                        <div className="radio-group">
-                          <label>
-                            <input type="radio" name="deliveryTime" value="48h" checked={formData.deliveryTime === '48h'} onChange={handleInputChange} />
-                            <span>48 HOURS (EXPRESS)</span>
-                          </label>
-                          <label>
-                            <input type="radio" name="deliveryTime" value="72h" checked={formData.deliveryTime === '72h'} onChange={handleInputChange} />
-                            <span>72 HOURS (STANDARD)</span>
-                          </label>
+                        <div className="delivery-time-static">
+                          <span>48 HOURS (STANDARD)</span>
                         </div>
                       </div>
 
