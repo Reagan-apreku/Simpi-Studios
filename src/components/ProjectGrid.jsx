@@ -196,7 +196,7 @@ const projects = [
   {
     id: 7,
     title: 'ASAMOAH GYAN BOOK LAUNCH',
-    cover: '/images/gallery/asamoah_gyan_book_launch/IMG_6615SIMPI22.jpg',
+    cover: '/images/gallery/asamoah_gyan_book_launch/IMG_7368SIMPI22.jpg',
     images: [
       '/images/gallery/asamoah_gyan_book_launch/IMG_6553SIMPI22.jpg',
       '/images/gallery/asamoah_gyan_book_launch/IMG_6554SIMPI22.jpg',
