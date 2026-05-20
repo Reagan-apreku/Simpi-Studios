@@ -312,7 +312,7 @@ const Prints = () => {
 
                 {/* Custom Prints Grid Section */}
                 <div className="custom-prints-section fade-in">
-                  <div className="prints-header" style={{ marginTop: '12rem' }}>
+                  <div className="prints-header" style={{ marginTop: '5rem' }}>
                     <h1 className="prints-title">Custom Prints</h1>
                     <p className="prints-subtitle">YOUR MASTERPIECE, CUSTOM FRAMED</p>
                   </div>
