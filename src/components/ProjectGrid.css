@@ -102,8 +102,16 @@
     letter-spacing: 0.2em;
   }
 
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
   .project-grid {
     grid-template-columns: 1fr;
-    row-gap: 3rem;
+    row-gap: 2rem;
+  }
+
+  .view-more-container {
+    margin-top: 3rem;
   }
 }
