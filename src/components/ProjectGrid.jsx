@@ -195,7 +195,7 @@ const projects = [
   {
     id: 7,
     title: 'NANA YAW & JOETTE - PRE WEDDING PHOTOSHOOT',
-    cover: '/images/gallery/10_000/007A8334SIMPI25.jpg',
+    cover: '/images/gallery/10_000/007A8487SIMPI25.jpg',
     images: [
       '/images/gallery/10_000/007A8196SIMPI25.jpg',
       '/images/gallery/10_000/007A8198SIMPI25.jpg',
