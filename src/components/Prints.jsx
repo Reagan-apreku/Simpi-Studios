@@ -25,6 +25,22 @@ const customPrints = [
     ],
     isCustom: true,
     size: '5" x 7"'
+  },
+  {
+    id: 'custom-photobook',
+    name: 'Photobook',
+    price: 1000,
+    image: '/images/prints/photobook.jpg',
+    images: [
+      '/images/prints/photobook.jpg'
+    ],
+    isCustom: true,
+    isPhotobook: true,
+    size: 'A4',
+    sizes: [
+      { name: 'A4', price: 1000 },
+      { name: 'A3', price: 1500 }
+    ]
   }
 ];
 
@@ -33,6 +49,7 @@ const Prints = () => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [orderComplete, setOrderComplete] = useState(false);
   const [orderDetails, setOrderDetails] = useState(null);
+  const [selectedCustomSize, setSelectedCustomSize] = useState(null);
   const [formData, setFormData] = useState({
     size: '24x36',
     deliveryTime: '48h',
@@ -48,6 +65,9 @@ const Prints = () => {
     
     // For custom prints, price is fixed per card size
     if (selectedFrame.isCustom) {
+      if (selectedFrame.sizes && selectedCustomSize) {
+        return selectedCustomSize.price;
+      }
       return selectedFrame.price;
     }
     
@@ -64,6 +84,11 @@ const Prints = () => {
     setSelectedFrame(frame);
     setActiveImageIndex(0);
     setOrderComplete(false);
+    if (frame.isCustom && frame.sizes) {
+      setSelectedCustomSize(frame.sizes[0]);
+    } else {
+      setSelectedCustomSize(null);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -79,7 +104,9 @@ const Prints = () => {
       customer_email: formData.email,
       customer_phone: formData.phone,
       frame_name: selectedFrame.name,
-      frame_size: selectedFrame.isCustom ? selectedFrame.size : formData.size,
+      frame_size: selectedFrame.isCustom 
+        ? (selectedCustomSize ? selectedCustomSize.name : selectedFrame.size) 
+        : formData.size,
       delivery_method: formData.deliveryMethod,
       delivery_address: formData.address || 'N/A',
       total_amount: `GH₵${calculateTotal()}`,
@@ -109,10 +136,13 @@ const Prints = () => {
       setOrderDetails({
         reference: reference.reference,
         frame: selectedFrame.name,
-        size: selectedFrame.isCustom ? selectedFrame.size : formData.size,
+        size: selectedFrame.isCustom 
+          ? (selectedCustomSize ? selectedCustomSize.name : selectedFrame.size) 
+          : formData.size,
         delivery: formData.deliveryMethod,
         total: calculateTotal(),
-        isCustom: selectedFrame.isCustom || false
+        isCustom: selectedFrame.isCustom || false,
+        isPhotobook: selectedFrame.isPhotobook || false
       });
       sendEmail(reference.reference);
       setOrderComplete(true);
@@ -131,9 +161,11 @@ const Prints = () => {
             <div className="success-icon">✓</div>
             <h1 className="success-title">Payment Successful</h1>
             <p className="success-message-simpi">
-              {orderDetails?.isCustom 
-                ? "Thank you for choosing Simpi Studios for your custom masterpiece. Our team will contact you shortly via phone and email to receive your high-resolution picture and coordinate the printing & framing details."
-                : "Thank you for choosing Simpi Studios. We are truly honored to have our work grace your space. Our team is already preparing your frame with the utmost care and precision."}
+              {orderDetails?.isPhotobook
+                ? "Thank you for choosing Simpi Studios for your custom photobook. Our team will contact you shortly via phone and email to coordinate the collection of pictures for your photobook."
+                : orderDetails?.isCustom 
+                  ? "Thank you for choosing Simpi Studios for your custom masterpiece. Our team will contact you shortly via phone and email to receive your high-resolution picture and coordinate the printing & framing details."
+                  : "Thank you for choosing Simpi Studios. We are truly honored to have our work grace your space. Our team is already preparing your frame with the utmost care and precision."}
             </p>
             
             <div className="order-summary">
@@ -161,9 +193,11 @@ const Prints = () => {
             </div>
 
             <p className="success-next-steps">
-              {orderDetails?.isCustom 
-                ? "A confirmation email has been sent. Our team will reach out directly to guide you on sending the high-res file." 
-                : "A confirmation email has been sent. We will contact you via phone shortly to coordinate delivery/pickup."}
+              {orderDetails?.isPhotobook
+                ? "A confirmation email has been sent. Our team will reach out directly for the collection of pictures for the photobook."
+                : orderDetails?.isCustom 
+                  ? "A confirmation email has been sent. Our team will reach out directly to guide you on sending the high-res file." 
+                  : "A confirmation email has been sent. We will contact you via phone shortly to coordinate delivery/pickup."}
             </p>
             
             <button className="return-btn" onClick={() => {
@@ -204,13 +238,15 @@ const Prints = () => {
                   </div>
                   
                   <div className="checkout-form-container">
-                    <h2>{selectedFrame.isCustom ? `${selectedFrame.name} Custom Fine Art Print` : selectedFrame.name}</h2>
+                    <h2>{selectedFrame.isPhotobook ? 'Custom Photobook' : selectedFrame.isCustom ? `${selectedFrame.name} Custom Fine Art Print` : selectedFrame.name}</h2>
                     <div className="price-display">
                       <p className="total-price">TOTAL: GH₵{calculateTotal()}</p>
                       <p className="price-note">
-                        {selectedFrame.isCustom 
-                          ? "Our team will reach out directly to coordinate receiving your custom high-resolution picture." 
-                          : "Price adjusts based on size and delivery time"}
+                        {selectedFrame.isPhotobook
+                          ? "Our team will reach out directly to collect the pictures for your photobook."
+                          : selectedFrame.isCustom 
+                            ? "Our team will reach out directly to coordinate receiving your custom high-resolution picture." 
+                            : "Price adjusts based on size and delivery time"}
                       </p>
                     </div>
                     
@@ -218,9 +254,26 @@ const Prints = () => {
                       <div className="form-section">
                         <h3>SELECT SIZE</h3>
                         {selectedFrame.isCustom ? (
-                          <div className="delivery-time-static">
-                            <span>{selectedFrame.size}</span>
-                          </div>
+                          selectedFrame.sizes ? (
+                            <div className="radio-group">
+                              {selectedFrame.sizes.map((sz) => (
+                                <label key={sz.name}>
+                                  <input 
+                                    type="radio" 
+                                    name="customSize" 
+                                    value={sz.name} 
+                                    checked={selectedCustomSize?.name === sz.name} 
+                                    onChange={() => setSelectedCustomSize(sz)} 
+                                  />
+                                  <span>{sz.name} (GH₵{sz.price})</span>
+                                </label>
+                              ))}
+                            </div>
+                          ) : (
+                            <div className="delivery-time-static">
+                              <span>{selectedFrame.size}</span>
+                            </div>
+                          )
                         ) : (
                           <div className="radio-group">
                             <label>
@@ -238,7 +291,7 @@ const Prints = () => {
                       <div className="form-section">
                         <h3>DELIVERY TIME</h3>
                         <div className="delivery-time-static">
-                          <span>48 HOURS (STANDARD)</span>
+                          <span>{selectedFrame.isPhotobook ? '7 BUSINESS DAYS' : '48 HOURS (STANDARD)'}</span>
                         </div>
                       </div>
 
