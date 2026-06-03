@@ -247,7 +247,7 @@ const projects = [
   },
   {
     id: 8,
-    title: 'STEPHANIE EYISON @ 40',
+    title: 'Stephanie Eyison - Birthday Portraits',
     cover: '/images/gallery/stephanie_eyison_at_40/007A0520-2SIMPI26.jpg',
     images: [
       '/images/gallery/stephanie_eyison_at_40/007A0520-2SIMPI26.jpg',
