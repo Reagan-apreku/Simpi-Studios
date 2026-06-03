@@ -283,8 +283,7 @@ const projects = [
       '/images/gallery/stephanie_eyison_at_40/007A0764-2SIMPI26.jpg',
       '/images/gallery/stephanie_eyison_at_40/007A0780-2SIMPI26.jpg',
       '/images/gallery/stephanie_eyison_at_40/007A0785-2SIMPI26.jpg',
-      '/images/gallery/stephanie_eyison_at_40/007A0792-2SIMPI26.jpg',
-      '/images/gallery/stephanie_eyison_at_40/007A0850-2SIMPI26.jpg'
+      '/images/gallery/stephanie_eyison_at_40/007A0792-2SIMPI26.jpg'
     ]
   }
 ];
