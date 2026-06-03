@@ -46,7 +46,7 @@ const About = () => {
             <div className="about-description">
               <p>Founded on the principles of timeless elegance and refined storytelling, Simpi Studios has become a sanctuary for high-end photography in Accra and beyond.</p>
               <p>We believe that every moment possesses a unique soul. Our mission is to capture that essence through a lens of sophisticated simplicity, creating visual legacies that transcend generations.</p>
-              <p>From editorial fashion to intimate portraits and grand celebrations, we approach every project with the same level of meticulous detail and artistic passion.</p>
+              <p>From portraits and events to corporate projects, we approach every project with the same level of meticulous detail and artistic passion.</p>
             </div>
           </div>
           <div className="about-image-main">

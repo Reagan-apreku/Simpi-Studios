@@ -24,12 +24,12 @@ function App() {
     } else {
       switch (currentPage) {
         case 'home':
-          title = 'Simpi Studios | Fine Art, Fashion & Wedding Photography';
-          description = 'Simpi Studios is a premier high-end photography studio specializing in editorial fashion, luxury weddings, fine art portraits, and corporate headshots in Ghana.';
+          title = 'Simpi Studios | Fine Art, Corporate & Portrait Photography';
+          description = 'Simpi Studios is a professional photography studio in Ghana specializing in fine art portraits, corporate headshots, and event photography.';
           break;
         case 'bookings':
           title = 'Book Your Photoshoot | Simpi Studios';
-          description = 'Reserve your session with Simpi Studios. Book Portrait, Wedding, Corporate, or Fashion photoshoots at our state-of-the-art studio or on-location.';
+          description = 'Reserve your session with Simpi Studios. Book portrait, corporate, or family photoshoots at our state-of-the-art studio or on-location.';
           break;
         case 'prints':
           title = 'Fine Art Photography Prints Store | Simpi Studios';

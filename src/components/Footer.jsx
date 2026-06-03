@@ -14,9 +14,9 @@ const Footer = () => {
           <h3>Services</h3>
           <ul>
             <li>Portrait Photography</li>
-            <li>Wedding Photography</li>
+            <li>Corporate Headshots</li>
             <li>Corporate Events</li>
-            <li>Fashion Editorial</li>
+            <li>Fine Art Prints</li>
           </ul>
         </div>
 
