@@ -244,6 +244,48 @@ const projects = [
       '/images/gallery/10_000/007A8492SIMPI25.jpg',
       '/images/gallery/10_000/007A8496SIMPI25.jpg'
     ]
+  },
+  {
+    id: 8,
+    title: 'STEPHANIE EYISON @ 40',
+    cover: '/images/gallery/stephanie_eyison_at_40/007A0520-2SIMPI26.jpg',
+    images: [
+      '/images/gallery/stephanie_eyison_at_40/007A0520-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0522-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0534-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0540-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0544-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0554-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0555-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0560-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0563-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0565-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0573-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0575-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0578-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0582-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0585-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0589-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0630-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0632-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0637-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0649-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0689-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0690-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0701-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0704-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0708-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0712-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0718-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0732-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0743-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0749-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0764-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0780-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0785-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0792-2SIMPI26.jpg',
+      '/images/gallery/stephanie_eyison_at_40/007A0850-2SIMPI26.jpg'
+    ]
   }
 ];
 
